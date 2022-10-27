@@ -65,7 +65,19 @@ class visualizar_datos_almacenados: AppCompatActivity() {
         var dirPath = filesDir.absolutePath + File.separator.toString() + selectedItem
         var text = File(dirPath, "numeroSerie.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
-        editor.putString("numeroSerie",text)
+        var editadoManualSR = ""
+        if(text.length > 12){
+            editadoManualSR = text.subSequence(12,text.length).toString()
+        }
+        var textOriginal = text.subSequence(0,12)
+        editor.putString("numeroSerie",textOriginal.toString())
+
+        if (editadoManualSR.length > 0){
+            editor.putString("EDM_SN","true")
+        }else{
+            editor.putString("EDM_SN","false")
+        }
+
         editor.commit()
         finish()
         //leemos foto numSerie //Guardar datos foto numero serie en preferencias compartidas.
@@ -82,7 +94,23 @@ class visualizar_datos_almacenados: AppCompatActivity() {
         var dirPathConsu = filesDir.absolutePath + File.separator.toString() + selectedItem
         var textConsu = File(dirPathConsu, "consumo.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
-        editor.putString("consumo",textConsu )
+
+
+        var editadoManualCN= ""
+        if(text.length > 4){
+            editadoManualCN = textConsu.subSequence(4,textConsu.length).toString()
+        }
+        var textOriginalCN = textConsu.subSequence(0,4)
+
+        editor.putString("consumo",textOriginalCN.toString() )
+
+        if (editadoManualCN.length > 0){
+            editor.putString("EDM_CN","true")
+        }else{
+            editor.putString("EDM_CN","false")
+        }
+
+
         editor.commit()
         finish()
         //leemos foto consumo //Guardar datos foto numero serie en preferencias compartidas.

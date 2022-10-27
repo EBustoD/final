@@ -58,6 +58,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
     /*private var ocrModel: OCRTextModelExecutor? = null*/
     var rutaImagen = ""
     var timeStamp = ""
+    var editado = false
     var bitMapCaptura: Bitmap? = null
     private lateinit var  intentAux: Intent
     private lateinit var captureImageFab: Button
@@ -83,6 +84,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         captureImageFab.setOnClickListener(this)
         btnEditar.setOnClickListener(this)
         btnConfirmar.setOnClickListener(this)
+        btnAtras.setOnClickListener(this)
         //configuracion del textView
         txtLecturaConsumo = findViewById(R.id.txtLecturaConsumo)
         //textoOCR = findViewById(R.id.textViewOCR)
@@ -367,9 +369,6 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
     }
 
 
-
-
-
     //guardaremos el dato en un en el fichero local y navegamos a la siguiente vista
     @RequiresApi(Build.VERSION_CODES.O)
     fun confirmarDato(){
@@ -383,11 +382,13 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "Error!, Campo consumo vacio",Toast.LENGTH_LONG).show()
             }else{
 
-
                 val dirPath = filesDir.absolutePath + File.separator.toString() + timeStamp
                 createDirectorio(dirPath)
 
-                //escribimos el numero
+                //escribimos el numero, si esta editado lo marcamos
+                if(editado){
+                    consumo += "_EDM"
+                }
                 File(dirPath, "consumo.txt").printWriter()
                     .use { out -> out.println(consumo) } //se escribe el numero en el ficheor
                 var name = "consumo_" + timeStamp
@@ -530,11 +531,10 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         }
 
         txtLecturaConsumo.setText(consumo)
-
         return outputBitmap
     }
-
     private fun activarEdicion() {
+        editado = true
         txtLecturaConsumo.setEnabled(true);
     }
 

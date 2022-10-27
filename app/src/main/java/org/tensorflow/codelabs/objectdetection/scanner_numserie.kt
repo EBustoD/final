@@ -64,6 +64,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     /*private var ocrModel: OCRTextModelExecutor? = null*/
     var rutaImagen = ""
     var timeStamp = ""
+    var editado = false
     var bitMapCaptura: Bitmap? = null
     private lateinit var  intentAux: Intent
     private lateinit var captureImageFab: Button
@@ -89,6 +90,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         captureImageFab.setOnClickListener(this)
         btnConfirmar.setOnClickListener(this)
         btnEditar.setOnClickListener(this)
+        btnAtras.setOnClickListener(this)
         //configuracion del textView
         txtLecturaNumeroSerie = findViewById(R.id.txtLecturaNumeroSerie)
        //textoOCR = findViewById(R.id.textViewOCR)
@@ -506,31 +508,27 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                     val dirPath = filesDir.absolutePath + File.separator.toString() + timeStamp
                     createDirectorio(dirPath)
 
-                    //escribimos el numero
+                    //escribimos el numero, si se a editado a mano se lo marcamos
+                    if(editado){
+                        numeroSerie += "_EDM"
+                    }
+
                     File(dirPath, "numeroSerie.txt").printWriter()
                         .use { out -> out.println(numeroSerie) } //se escribe el numero en el ficheor
                     val imgPath = File(dirPath, "numeroSerie.jpg")
                     var name = "serie_" + timeStamp
                     saveToInternalStorage(name, bitMapCaptura, this)
-                    Toast.makeText(this, "Se a guardado el dato con exito", Toast.LENGTH_SHORT)
-                        .show()
-
+                    Toast.makeText(this, "Se a guardado el dato con exito", Toast.LENGTH_SHORT).show()
                     //Guardamos el timeStamp para la proximavista
                     val preferencias = getSharedPreferences("datosTimeStamp", MODE_PRIVATE)
                     val editor: SharedPreferences.Editor = preferencias.edit()
                     editor.putString("timeStamp", timeStamp)
                     editor.commit()
                     finish()
-
-
                     //navegar a la siguiente vista
                     navegarSiguiente()
                 }
             }
-
-
-
-
 
         } catch (e: IOException) {
             Toast.makeText(this, "Ha ocurrido un error, vuelva a intentarlo",Toast.LENGTH_SHORT).show()
@@ -576,6 +574,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
     private fun activarEdicion() {
         txtLecturaNumeroSerie.setEnabled(true);
+        editado = true
     }
 
     private fun navBack(){

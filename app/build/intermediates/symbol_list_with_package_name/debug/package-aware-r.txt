@@ -2158,6 +2158,8 @@ id triangle
 id txtLecturaConsumo
 id txtLecturaNumeroSerie
 id txtNumSerie
+id txteditadoConsumo
+id txteditadoSerie
 id unchecked
 id uniform
 id unlabeled

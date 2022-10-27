@@ -1,4 +1,4 @@
-#Thu Oct 27 12:46:47 CEST 2022
+#Thu Oct 27 13:55:29 CEST 2022
 base.2=C\:\\Users\\LiherGallegoGartzian\\Documents\\2022\\Amvisa\\APP_V1_AMV\\final\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.2=classes2.dex
 base.1=C\:\\Users\\LiherGallegoGartzian\\Documents\\2022\\Amvisa\\APP_V1_AMV\\final\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
