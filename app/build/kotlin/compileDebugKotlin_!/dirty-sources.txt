@@ -1,0 +1,5 @@
+C:\Users\EkaitzBustoRuizdeGor\Desktop\odml-pathways-main\object-detection\codelab2\android\final\app\src\main\java\org\tensorflow\codelabs\objectdetection\ImageUtils.kt
+C:\Users\EkaitzBustoRuizdeGor\Desktop\odml-pathways-main\object-detection\codelab2\android\final\app\src\main\java\org\tensorflow\codelabs\objectdetection\MainActivity.kt
+C:\Users\EkaitzBustoRuizdeGor\Desktop\odml-pathways-main\object-detection\codelab2\android\final\app\src\main\java\org\tensorflow\codelabs\objectdetection\ModelExecutionResult.kt
+C:\Users\EkaitzBustoRuizdeGor\Desktop\odml-pathways-main\object-detection\codelab2\android\final\app\src\main\java\org\tensorflow\codelabs\objectdetection\OCRTextModelExecutor.kt
+C:\Users\EkaitzBustoRuizdeGor\Desktop\odml-pathways-main\object-detection\codelab2\android\final\app\src\main\java\org\tensorflow\codelabs\objectdetection\TextRecognitionActivity.kt

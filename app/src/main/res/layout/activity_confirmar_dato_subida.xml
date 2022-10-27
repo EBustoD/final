@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".confirmarDato_subida">
+
+    <TextView
+        android:id="@+id/txtNumSerie"
+        android:layout_width="364dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="154dp"
+        android:background="@drawable/boarder"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="222dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="364dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="304dp"
+        android:background="@drawable/boarder"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="299dp" />
+
+    <TextView
+        android:id="@+id/lblSerie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Numero Serie:"
+        android:textSize="24sp"
+        android:layout_marginTop="104dp"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="222dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="128dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="254dp"
+        android:text="Consumo:"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="292dp" />
+
+    <Button
+        android:id="@+id/btnSubir"
+        android:layout_width="380dp"
+        android:layout_height="81dp"
+        android:text="Subir Dato"
+        app:backgroundTint="@color/amvisa"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="504dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="413dp" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="380dp"
+        android:layout_height="81dp"
+        android:text="Guardar"
+        app:backgroundTint="@color/amvisa"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="424dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="599dp" />
+    </RelativeLayout>

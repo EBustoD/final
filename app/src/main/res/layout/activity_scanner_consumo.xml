@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="org.tensorflow.codelabs.objectdetection.scanner_consumo">
+
+
+    <Button
+        android:id="@+id/captureImageFab"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:layout_marginTop="14dp"
+        android:text="Scanner"
+        app:backgroundTint="@color/amvisa"
+        app:icon="@drawable/ic_camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewRecorte"
+        android:layout_width="360dp"
+        android:layout_height="364dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="110dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txtLecturaConsumo"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:layout_marginTop="490dp"
+        android:background="@drawable/boarder"
+        android:inputType="number"
+        android:hint="Consumo" />
+
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:layout_marginTop="590dp"
+        android:text="Confirmar"
+        app:backgroundTint="@color/amvisa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</RelativeLayout>
