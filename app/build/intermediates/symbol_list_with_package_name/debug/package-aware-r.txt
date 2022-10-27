@@ -1823,7 +1823,9 @@ id blocking
 id bottom
 id bounce
 id btnAlmacen
+id btnBack
 id btnConfirmar
+id btnEdit
 id btnGuardar
 id btnScanner
 id btnSubir
