@@ -318,12 +318,6 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         pen.textAlign = Paint.Align.LEFT
 
         detectionResults.forEach {
-            // draw bounding box
-            pen.color = Color.RED
-            pen.strokeWidth = 8F
-            pen.style = Paint.Style.STROKE
-
-            //invent empieza aqui
 
             val left = it.boundingBox.left.toInt()
             val top = it.boundingBox.top.toInt()
