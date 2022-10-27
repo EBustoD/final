@@ -76,17 +76,16 @@ class visualizar_datos_almacenados: AppCompatActivity() {
         finish()
 
 
-//TODO HACER LO MISMO CON EL CONSUMO Y CON LA IMAGEN (guardar ruta de la imagen y luego mostrarla en el view)
+        //LO MISMO CON EL CONSUMO Y CON LA IMAGEN (guardar ruta de la imagen y luego mostrarla en el view)
 
-
-        //leemos fichero numSerie
+        //leemos fichero consumo
         var dirPathConsu = filesDir.absolutePath + File.separator.toString() + selectedItem
         var textConsu = File(dirPathConsu, "consumo.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
         editor.putString("consumo",textConsu )
         editor.commit()
         finish()
-        //leemos foto numSerie //Guardar datos foto numero serie en preferencias compartidas.
+        //leemos foto consumo //Guardar datos foto numero serie en preferencias compartidas.
         ///data/data/org.tensorflow.codelabs.objectdetection/app_imagenesLectura
         var dirPathImgConsu = "data/data/" +  "org.tensorflow.codelabs.objectdetection" + File.separator.toString() + "app_imagenesLectura" +  File.separator.toString() + "consumo_" + selectedItem + ".jpg"
         editor.putString("rutaImgConsumo",dirPathImgConsu)

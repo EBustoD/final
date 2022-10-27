@@ -58,10 +58,12 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
     /*private var ocrModel: OCRTextModelExecutor? = null*/
     var rutaImagen = ""
     var timeStamp = ""
-    private lateinit var bitMapCaptura: Bitmap
+    var bitMapCaptura: Bitmap? = null
     private lateinit var  intentAux: Intent
     private lateinit var captureImageFab: Button
     private lateinit var btnConfirmar: Button
+    private lateinit var btnEditar: Button
+    private lateinit var btnAtras: Button
     private lateinit var inputImageView: ImageView
     private lateinit var outputImageView: ImageView
     private lateinit var txtLecturaConsumo: com.google.android.material.textfield.TextInputEditText
@@ -75,10 +77,11 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_scanner_consumo)
         //Configuracion botones
         captureImageFab = findViewById(R.id.captureImageFab)
-        //btnEditar = findViewById(R.id.btnEditar)
+        btnEditar = findViewById(R.id.btnEdit)
+        btnAtras = findViewById(R.id.btnBack)
         btnConfirmar = findViewById(R.id.btnConfirmar)
         captureImageFab.setOnClickListener(this)
-        //btnEditar.setOnClickListener(this)
+        btnEditar.setOnClickListener(this)
         btnConfirmar.setOnClickListener(this)
         //configuracion del textView
         txtLecturaConsumo = findViewById(R.id.txtLecturaConsumo)
@@ -122,6 +125,24 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
 
                 } catch (e: ActivityNotFoundException) {
                     Log.e(TAG, e.message.toString())
+                }
+            }
+
+            R.id.btnEdit ->{
+                try {
+                    activarEdicion()
+
+                } catch (e: ActivityNotFoundException) {
+                    Log.e(scanner_numSerie.TAG, e.message.toString())
+                }
+            }
+
+            R.id.btnBack->{
+                try {
+                    navBack()
+
+                } catch (e: ActivityNotFoundException) {
+                    Log.e(scanner_numSerie.TAG, e.message.toString())
                 }
             }
         }
@@ -355,20 +376,26 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
 
         //Escribir en el fichero
         try{
-            //Variables
             var consumo = txtLecturaConsumo.text.toString()
+            if(bitMapCaptura === null){
+                Toast.makeText(this, "Error!, Campo imagen vacio",Toast.LENGTH_LONG).show()
+            }else if(consumo.length == 0) {
+                Toast.makeText(this, "Error!, Campo consumo vacio",Toast.LENGTH_LONG).show()
+            }else{
 
-            val dirPath = filesDir.absolutePath + File.separator.toString() +  timeStamp
-            createDirectorio(dirPath)
 
-            //escribimos el numero
-            File(dirPath, "consumo.txt").printWriter().use { out -> out.println(consumo) } //se escribe el numero en el ficheor
-            var name = "consumo_" + timeStamp
-            saveToInternalStorage(name,bitMapCaptura,this)
-            Toast.makeText(this, "Se a guardado el dato con exito",Toast.LENGTH_SHORT).show()
-            //navegar a la siguiente vista
-            navegar()
+                val dirPath = filesDir.absolutePath + File.separator.toString() + timeStamp
+                createDirectorio(dirPath)
 
+                //escribimos el numero
+                File(dirPath, "consumo.txt").printWriter()
+                    .use { out -> out.println(consumo) } //se escribe el numero en el ficheor
+                var name = "consumo_" + timeStamp
+                saveToInternalStorage(name, bitMapCaptura, this)
+                Toast.makeText(this, "Se a guardado el dato con exito", Toast.LENGTH_SHORT).show()
+                //navegar a la siguiente vista
+                navegar()
+            }
         } catch (e: IOException) {
             Toast.makeText(this, "Ha ocurrido un error, vuelva a intentarlo",Toast.LENGTH_SHORT).show()
         }
@@ -506,6 +533,15 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
 
         return outputBitmap
     }
+
+    private fun activarEdicion() {
+        txtLecturaConsumo.setEnabled(true);
+    }
+
+    private fun navBack(){
+        startActivity(Intent(this,scanner_numSerie::class.java))
+    }
+
 }
 
 /**

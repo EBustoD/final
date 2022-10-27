@@ -64,10 +64,12 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     /*private var ocrModel: OCRTextModelExecutor? = null*/
     var rutaImagen = ""
     var timeStamp = ""
-    private lateinit var bitMapCaptura: Bitmap
+    var bitMapCaptura: Bitmap? = null
     private lateinit var  intentAux: Intent
     private lateinit var captureImageFab: Button
     private lateinit var btnConfirmar: Button
+    private lateinit var btnEditar: Button
+    private lateinit var btnAtras: Button
     private lateinit var inputImageView: ImageView
     private lateinit var outputImageView: ImageView
     private lateinit var txtLecturaNumeroSerie: com.google.android.material.textfield.TextInputEditText
@@ -81,11 +83,12 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_scanner_numserie)
         //Configuracion botones
         captureImageFab = findViewById(R.id.captureImageFab)
-        //btnEditar = findViewById(R.id.btnEditar)
+        btnEditar = findViewById(R.id.btnEdit)
+        btnAtras = findViewById(R.id.btnBack)
         btnConfirmar = findViewById(R.id.btnConfirmar)
         captureImageFab.setOnClickListener(this)
-        //btnEditar.setOnClickListener(this)
         btnConfirmar.setOnClickListener(this)
+        btnEditar.setOnClickListener(this)
         //configuracion del textView
         txtLecturaNumeroSerie = findViewById(R.id.txtLecturaNumeroSerie)
        //textoOCR = findViewById(R.id.textViewOCR)
@@ -125,6 +128,24 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             R.id.btnConfirmar -> {
                 try {
                     confirmarDato()
+
+                } catch (e: ActivityNotFoundException) {
+                    Log.e(TAG, e.message.toString())
+                }
+            }
+
+            R.id.btnEdit ->{
+                try {
+                    activarEdicion()
+
+                } catch (e: ActivityNotFoundException) {
+                    Log.e(TAG, e.message.toString())
+                }
+            }
+
+            R.id.btnBack->{
+                try {
+                    navBack()
 
                 } catch (e: ActivityNotFoundException) {
                     Log.e(TAG, e.message.toString())
@@ -456,6 +477,9 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
         }
         return vuelta
+
+
+
     }
 
 
@@ -476,26 +500,32 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                 //Variables
                 var numeroSerie = textoLectura
 
-                val dirPath = filesDir.absolutePath + File.separator.toString() +  timeStamp
-                createDirectorio(dirPath)
+                if(bitMapCaptura === null){
+                    Toast.makeText(this, "Error!, Campo imagen vacio",Toast.LENGTH_LONG).show()
+                }else {
+                    val dirPath = filesDir.absolutePath + File.separator.toString() + timeStamp
+                    createDirectorio(dirPath)
 
-                //escribimos el numero
-                File(dirPath, "numeroSerie.txt").printWriter().use { out -> out.println(numeroSerie) } //se escribe el numero en el ficheor
-                val imgPath = File(dirPath, "numeroSerie.jpg")
-                var name = "serie_" + timeStamp
-                saveToInternalStorage(name,bitMapCaptura,this)
-                Toast.makeText(this, "Se a guardado el dato con exito",Toast.LENGTH_SHORT).show()
+                    //escribimos el numero
+                    File(dirPath, "numeroSerie.txt").printWriter()
+                        .use { out -> out.println(numeroSerie) } //se escribe el numero en el ficheor
+                    val imgPath = File(dirPath, "numeroSerie.jpg")
+                    var name = "serie_" + timeStamp
+                    saveToInternalStorage(name, bitMapCaptura, this)
+                    Toast.makeText(this, "Se a guardado el dato con exito", Toast.LENGTH_SHORT)
+                        .show()
 
-                //Guardamos el timeStamp para la proximavista
-                val preferencias = getSharedPreferences("datosTimeStamp", MODE_PRIVATE)
-                val editor: SharedPreferences.Editor = preferencias.edit()
-                editor.putString("timeStamp",timeStamp)
-                editor.commit()
-                finish()
+                    //Guardamos el timeStamp para la proximavista
+                    val preferencias = getSharedPreferences("datosTimeStamp", MODE_PRIVATE)
+                    val editor: SharedPreferences.Editor = preferencias.edit()
+                    editor.putString("timeStamp", timeStamp)
+                    editor.commit()
+                    finish()
 
 
-                //navegar a la siguiente vista
-                navegar()
+                    //navegar a la siguiente vista
+                    navegarSiguiente()
+                }
             }
 
 
@@ -507,7 +537,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun navegar(){
+    fun navegarSiguiente(){
         startActivity(Intent(this,scanner_consumo::class.java))
     }
 
@@ -542,6 +572,14 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
         }
         return directory.absolutePath
+    }
+
+    private fun activarEdicion() {
+        txtLecturaNumeroSerie.setEnabled(true);
+    }
+
+    private fun navBack(){
+        startActivity(Intent(this,MainActivity::class.java))
     }
 }
 

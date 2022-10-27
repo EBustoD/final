@@ -8,12 +8,20 @@
     android:orientation="vertical"
     tools:context="org.tensorflow.codelabs.objectdetection.scanner_numSerie">
 
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@color/amvisa"
+        app:icon="@drawable/abc_vector_test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/captureImageFab"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="44dp"
         android:text="Scanner"
         app:backgroundTint="@color/amvisa"
         app:icon="@drawable/ic_camera"
@@ -25,28 +33,40 @@
         android:layout_width="360dp"
         android:layout_height="364dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="130dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txtLecturaNumeroSerie"
-        android:layout_width="match_parent"
-        android:layout_height="87dp"
-        android:layout_marginTop="490dp"
+        android:layout_width="310dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="510dp"
         android:background="@drawable/boarder"
+        android:enabled="false"
+        android:focusable="true"
         android:hint="Numero serie" />
 
     <Button
         android:id="@+id/btnConfirmar"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        app:backgroundTint="@color/amvisa"
-        android:layout_marginTop="590dp"
+        android:layout_marginTop="610dp"
         android:text="Confirmar"
+        app:backgroundTint="@color/amvisa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="75dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="507dp"
+        android:layout_marginBottom="320dp"
+        app:backgroundTint="@color/amvisa"
+        app:icon="@android:drawable/ic_menu_edit" />
 
 
 </RelativeLayout>
