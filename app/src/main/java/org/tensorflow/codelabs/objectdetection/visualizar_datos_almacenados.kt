@@ -1,21 +1,25 @@
 package org.tensorflow.codelabs.objectdetection
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.io.File
 
 
-class visualizar_datos_almacenados: AppCompatActivity() {
+class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
     private lateinit var listViewLecturas: ListView
     private lateinit var txtLecturaNumeroSerie: com.google.android.material.textfield.TextInputEditText
+    private lateinit var btnAtras: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +28,8 @@ class visualizar_datos_almacenados: AppCompatActivity() {
         //Set el onclick item de la lista
         listViewLecturas = findViewById(R.id.lecturasList)
         listViewLecturas.setClickable(true);
+        btnAtras = findViewById(R.id.btnBack)
+        btnAtras.setOnClickListener(this)
         //txtLecturaNumeroSerie = findViewById(R.id.text)
 
         listViewLecturas.setOnItemClickListener { parent, _, position, _ ->
@@ -31,17 +37,27 @@ class visualizar_datos_almacenados: AppCompatActivity() {
             //Toast.makeText(this, selectedItem , Toast.LENGTH_SHORT).show()
             navToVisualizadoDato(selectedItem)
         }
+
         //MOSTRAMOS TODAS LAS CARPETAS QUE ALMACENAN LAS LECTURAS.
         // use arrayadapter and define an array
         val arrayAdapter: ArrayAdapter<*>
         val lecturas = mutableListOf<String>()
         val f: File = File(filesDir.absolutePath)
         val files = f.listFiles()
+        var cnt = 0
         for (inFile in files) {
             if (inFile.isDirectory) {
                 // is directory
                 //users.plus(inFile.name)
-                lecturas.add(inFile.name)
+                var list = inFile.list()
+
+                //esto quiere decir que existen tanto el fichero de numero serie y consumo
+                if(list.size > 1){
+                    lecturas.add(inFile.name)
+                    cnt = 0
+                }
+
+
             }
         }
         // access the listView from xml file
@@ -145,6 +161,22 @@ class visualizar_datos_almacenados: AppCompatActivity() {
         }
     }
 
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btnBack->{
+                try {
+                    navBack()
+
+                } catch (e: ActivityNotFoundException) {
+                    Log.e(scanner_numSerie.TAG, e.message.toString())
+                }
+            }
+        }
+    }
+
+    private fun navBack(){
+        startActivity(Intent(this,MainActivity::class.java))
+    }
 
 
 }

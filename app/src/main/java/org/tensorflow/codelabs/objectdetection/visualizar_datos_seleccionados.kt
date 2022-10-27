@@ -1,28 +1,36 @@
 package org.tensorflow.codelabs.objectdetection
 
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import java.io.File
 
 
-class visualizar_datos_seleccionados: AppCompatActivity() {
+class visualizar_datos_seleccionados: AppCompatActivity(), View.OnClickListener {
     private lateinit var imagenSerie: ImageView
     private lateinit var txtLecturaNumeroSerie: TextView
     private lateinit var imagenConsu: ImageView
     private lateinit var txtLecturaConsu: TextView
     private lateinit var txtEditadoSeri: TextView
     private lateinit var txtEditadoConsumo: TextView
+    private lateinit var btnAtras: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualizar_dato_seleccionado)
 
         //configurar controles
+        btnAtras = findViewById(R.id.btnBack)
+        btnAtras.setOnClickListener(this)
         imagenSerie = findViewById(R.id.imageViewRecorteSerie);
         imagenConsu = findViewById(R.id.imageViewRecorteConsumo);
         txtLecturaNumeroSerie = findViewById(R.id.txtLecturaNumeroSerie);
@@ -62,8 +70,22 @@ class visualizar_datos_seleccionados: AppCompatActivity() {
     }
 
 
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btnBack->{
+                try {
+                    navBack()
 
+                } catch (e: ActivityNotFoundException) {
+                    Log.e(scanner_numSerie.TAG, e.message.toString())
+                }
+            }
+        }
+    }
 
+    private fun navBack(){
+        startActivity(Intent(this,visualizar_datos_almacenados::class.java))
+    }
 
 
 }

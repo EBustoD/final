@@ -12,6 +12,7 @@
         android:id="@+id/btnBack"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
         app:backgroundTint="@color/amvisa"
         app:icon="@drawable/abc_vector_test"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +46,7 @@
         android:layout_marginTop="510dp"
         android:background="@drawable/boarder"
         android:enabled="false"
+        android:layout_marginLeft="5dp"
         android:focusable="true"
         android:hint="Consumo"
         android:inputType="number" />
