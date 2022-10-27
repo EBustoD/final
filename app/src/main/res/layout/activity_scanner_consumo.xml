@@ -22,7 +22,7 @@
         android:id="@+id/captureImageFab"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="50dp"
         android:text="Scanner"
         app:backgroundTint="@color/amvisa"
         app:icon="@drawable/ic_camera"
@@ -32,21 +32,21 @@
     <ImageView
         android:id="@+id/imageViewRecorte"
         android:layout_width="360dp"
-        android:layout_height="364dp"
+        android:layout_height="354dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="140dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txtLecturaConsumo"
-        android:layout_width="310dp"
+        android:layout_width="260dp"
         android:layout_height="85dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="510dp"
         android:background="@drawable/boarder"
         android:enabled="false"
-        android:layout_marginLeft="5dp"
         android:focusable="true"
         android:hint="Consumo"
         android:inputType="number" />
@@ -65,7 +65,7 @@
         android:id="@+id/btnEdit"
         android:layout_width="75dp"
         android:layout_height="91dp"
-        android:layout_marginStart="320dp"
+        android:layout_marginStart="307dp"
         android:layout_marginTop="507dp"
         android:layout_marginBottom="320dp"
         app:backgroundTint="@color/amvisa"
