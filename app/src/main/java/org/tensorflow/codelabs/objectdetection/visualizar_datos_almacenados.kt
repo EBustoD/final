@@ -44,16 +44,14 @@ class visualizar_datos_almacenados: AppCompatActivity() {
                 lecturas.add(inFile.name)
             }
         }
-
         // access the listView from xml file
         //var mListView = findViewById<ListView>(R.id.lecturasList)
+        //cambio el orden para que las lecturas nuevas salgan las primeras en el ListView
+        lecturas.reverse()
         arrayAdapter = ArrayAdapter(this,
             android.R.layout.simple_list_item_1, lecturas)
         listViewLecturas.adapter = arrayAdapter
-
-
     }
-
 
     fun navToVisualizadoDato(selectedItem : String){
 
