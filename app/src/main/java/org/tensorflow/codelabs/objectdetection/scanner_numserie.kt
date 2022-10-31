@@ -28,9 +28,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
@@ -41,13 +41,10 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.net.HttpURLConnection
-import java.net.URL
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.*
@@ -66,7 +63,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     var timeStamp = ""
     var editado = false
     var bitMapCaptura: Bitmap? = null
-    private lateinit var  intentAux: Intent
     private lateinit var captureImageFab: Button
     private lateinit var btnConfirmar: Button
     private lateinit var btnEditar: Button
@@ -74,10 +70,10 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     private lateinit var inputImageView: ImageView
     private lateinit var outputImageView: ImageView
     private lateinit var txtLecturaNumeroSerie: com.google.android.material.textfield.TextInputEditText
-    private lateinit var tvPlaceholder: TextView
-    private lateinit var t: TextView
     private lateinit var currentPhotoPath: String
-    private lateinit var dato: String
+    private lateinit var context : Context
+    private lateinit var dialog: AlertDialog
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,6 +93,21 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         inputImageView = findViewById(R.id.imageViewRecorte)
         //imagenView
         outputImageView = findViewById(R.id.imageViewRecorte)
+
+        //preferencias para idioma
+        val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
+        val idioma = preferencias.getString("idioma_set","")
+        if(idioma == "EU"){
+            context = LocaleHelper.setLocale(this, "eu");
+        }else{
+            context = LocaleHelper.setLocale(this, "es");
+
+        }
+        //asignar textos
+        btnConfirmar.setText(context.getResources().getString(R.string.btn_confirmar))
+        captureImageFab.setText(context.getResources().getString(R.string.btn_escanear))
+        txtLecturaNumeroSerie.setHint(context.getResources().getString(R.string.numerSerie))
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -161,6 +172,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
      *      TFLite Object Detection function
      */
     private fun runObjectDetection(bitmap: Bitmap) {
+
         // Step 1: Create TFLite's TensorImage object
         val image = TensorImage.fromBitmap(bitmap)
 
@@ -187,6 +199,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             // Create a data object to display the detection result
             DetectionResult(it.boundingBox, text)
         }
+
         // Draw the detection result on the bitmap and show it.
         val imgWithResult = drawDetectionResult(bitmap, resultToDisplay)
         runOnUiThread {
@@ -204,7 +217,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         // Display capture image
         inputImageView.setImageBitmap(bitmap)
         //tvPlaceholder.visibility = View.INVISIBLE
-
         // Run ODT and display result
         // Note that we run this in the background thread to avoid blocking the app UI because
         // TFLite object detection is a synchronised process.
@@ -325,7 +337,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                     )
 
                     rutaImagen = photoURI.toString()
-
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
                 }
@@ -431,12 +442,8 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
                 //SI se tiene en cuenta el espacio entre la ultima letra y el resto del numero de serie la longitud son 13
                 if (textoLecutaAux.length  != 12) {
-                    //TODO:HACER UNA ALERTA O UN TEXTO EN ROJO QUE SE PONGA VISIBLE PARA AVISAR QUE SE HA COMIDO ALGUN NUMERO/LETRA
                     txtLecturaNumeroSerie.setError("Longitud Erronea, verifique la lectura")
-
                 } else if (!comprobarFormato(textoLecutaAux)) {
-                    //TODO: CAMBIAR LA MANERA DE RECOGER EL TEXTO PARA QUE USE EL TEXTO DE LA CAJA EN VEZ DE LA DETECCIÓN
-                    // (PARA CHECKEAR ENTRADAS MANUALES) ¿USAR ALGUN LISTENER PARA QUE SE ACTUALIZE DINAMICAMENTE LA ALERTA?
                     txtLecturaNumeroSerie.setError("Formato Erroneo, verifique la lectura")
                 }
                 //Log.d("textoFinal", textoRefinado)
@@ -445,6 +452,8 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             .addOnFailureListener { e ->
                 //Except
             }
+
+
     }
 
     fun comprobarFormato(numSerie: String): Boolean {
@@ -479,9 +488,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
         }
         return vuelta
-
-
-
     }
 
 
@@ -494,16 +500,16 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
             //SI se tiene en cuenta el espacio entre la ultima letra y el resto del numero de serie la longitud son 13
             if (textoLectura.length  != 12) {
-                txtLecturaNumeroSerie.setError("Longitud Erronea, verifique la lectura")
+                txtLecturaNumeroSerie.setError(context.getResources().getString(R.string.ErrorLongitud))
 
             } else if (!comprobarFormato(textoLectura)) {
-                txtLecturaNumeroSerie.setError("Formato Erroneo, verifique la lectura")
+                txtLecturaNumeroSerie.setError(context.getResources().getString(R.string.ErrorFormato))
             }else{
                 //Variables
                 var numeroSerie = textoLectura
 
                 if(bitMapCaptura === null){
-                    Toast.makeText(this, "Error!, Campo imagen vacio",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, context.getResources().getString(R.string.ErrorImagen),Toast.LENGTH_LONG).show()
                 }else {
                     val dirPath = filesDir.absolutePath + File.separator.toString() + timeStamp
                     createDirectorio(dirPath)
@@ -511,6 +517,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                     //escribimos el numero, si se a editado a mano se lo marcamos
                     if(editado){
                         numeroSerie += "_EDM"
+                        editado = false
                     }
 
                     File(dirPath, "numeroSerie.txt").printWriter()
@@ -518,7 +525,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                     val imgPath = File(dirPath, "numeroSerie.jpg")
                     var name = "serie_" + timeStamp
                     saveToInternalStorage(name, bitMapCaptura, this)
-                    Toast.makeText(this, "Se a guardado el dato con exito", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, context.getResources().getString(R.string.guardarExito), Toast.LENGTH_SHORT).show()
                     //Guardamos el timeStamp para la proximavista
                     val preferencias = getSharedPreferences("datosTimeStamp", MODE_PRIVATE)
                     val editor: SharedPreferences.Editor = preferencias.edit()
@@ -531,15 +538,13 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             }
 
         } catch (e: IOException) {
-            Toast.makeText(this, "Ha ocurrido un error, vuelva a intentarlo",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, context.getResources().getString(R.string.ErrorGeneral),Toast.LENGTH_SHORT).show()
         }
     }
 
     fun navegarSiguiente(){
         startActivity(Intent(this,scanner_consumo::class.java))
     }
-
-
 
     fun createDirectorio(dirPath : String){
         val projDir = File(dirPath)
@@ -567,7 +572,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-
         }
         return directory.absolutePath
     }
@@ -577,9 +581,15 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         editado = true
     }
 
+    override fun onBackPressed() {
+        navBack() // optional depending on your needs
+    }
+
     private fun navBack(){
         startActivity(Intent(this,MainActivity::class.java))
     }
+
+
 }
 
 /**

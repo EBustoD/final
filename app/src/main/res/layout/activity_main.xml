@@ -19,7 +19,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
             android:layout_marginTop="260dp"
-            android:text="Comenzar Escaneo"
+            android:text="@string/btn_start_scan"
             app:backgroundTint="@color/amvisa" />
 
         <Button
@@ -29,7 +29,7 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="450dp"
             android:layout_centerHorizontal="true"
-            android:text="Ver datos almacenados"
+            android:text="@string/btn_datos_almacen"
             app:backgroundTint="@color/amvisa"
             />
 
@@ -51,5 +51,13 @@
             android:layout_marginBottom="40dp"
             android:layout_centerHorizontal="true"
             app:srcCompat="@drawable/orekait" />
+
+        <Button
+            android:id="@+id/btnIdioma"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="56dp"
+            android:layout_height="50dp"
+            android:text="EU" />
     </RelativeLayout>
 </ScrollView>

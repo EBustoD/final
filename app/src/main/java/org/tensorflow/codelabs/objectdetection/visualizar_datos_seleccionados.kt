@@ -2,20 +2,27 @@ package org.tensorflow.codelabs.objectdetection
 
 
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import java.io.File
+import java.nio.file.Files
 
 
 class visualizar_datos_seleccionados: AppCompatActivity(), View.OnClickListener {
+
+
+    private lateinit var preferencias : SharedPreferences
     private lateinit var imagenSerie: ImageView
     private lateinit var txtLecturaNumeroSerie: TextView
     private lateinit var imagenConsu: ImageView
@@ -23,14 +30,19 @@ class visualizar_datos_seleccionados: AppCompatActivity(), View.OnClickListener 
     private lateinit var txtEditadoSeri: TextView
     private lateinit var txtEditadoConsumo: TextView
     private lateinit var btnAtras: Button
-
+    private lateinit var btnEliminar: Button
+    private lateinit var rutaImgConsumo: Uri
+    private lateinit var rutaImgNS: Uri
+    private lateinit var context: Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualizar_dato_seleccionado)
 
         //configurar controles
         btnAtras = findViewById(R.id.btnBack)
+        btnEliminar = findViewById(R.id.btnBorrar)
         btnAtras.setOnClickListener(this)
+        btnEliminar.setOnClickListener(this)
         imagenSerie = findViewById(R.id.imageViewRecorteSerie);
         imagenConsu = findViewById(R.id.imageViewRecorteConsumo);
         txtLecturaNumeroSerie = findViewById(R.id.txtLecturaNumeroSerie);
@@ -39,16 +51,31 @@ class visualizar_datos_seleccionados: AppCompatActivity(), View.OnClickListener 
         txtEditadoSeri = findViewById(R.id.txteditadoSerie)
         visualizadoDato()
 
+        //preferencias para idioma
+        val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
+        val idioma = preferencias.getString("idioma_set","")
+        if(idioma == "EU"){
+            context = LocaleHelper.setLocale(this, "eu");
+
+        }else{
+            context = LocaleHelper.setLocale(this, "es");
+        }
+
+        //asignar textos
+        txtLecturaNumeroSerie.setHint(context.getResources().getString(R.string.numerSerie))
+        txtLecturaConsu.setHint(context.getResources().getString(R.string.consumo))
+        btnEliminar.setText(context.getResources().getString(R.string.btn_borrar))
     }
 
     fun visualizadoDato(){
-        val preferencias = getSharedPreferences("datos", MODE_PRIVATE)
+
+        preferencias = getSharedPreferences("datos", MODE_PRIVATE)
         val numeroSerie = preferencias.getString("numeroSerie","");
         val serieEditada = preferencias.getString("EDM_SN","");
-        val rutaImgNS = preferencias.getString("rutaImgNumeroSerie","")?.toUri();
+        rutaImgNS = preferencias.getString("rutaImgNumeroSerie","")?.toUri()!!;
         val consumo = preferencias.getString("consumo","");
         val consumoEditado = preferencias.getString("EDM_CN","");
-        val rutaImgConsumo= preferencias.getString("rutaImgConsumo","")?.toUri();
+        rutaImgConsumo = preferencias.getString("rutaImgConsumo","")?.toUri()!!;
 
         txtLecturaNumeroSerie.setText(numeroSerie);
         imagenSerie.setImageURI(rutaImgNS)
@@ -62,7 +89,7 @@ class visualizar_datos_seleccionados: AppCompatActivity(), View.OnClickListener 
         txtLecturaConsu.setText(consumo)
         imagenConsu.setImageURI(rutaImgConsumo)
         //Marcamos como editado a mano o escaneado
-        if(serieEditada == "true"){
+        if(consumoEditado == "true"){
             txtEditadoConsumo.setText("EDM")
         }else{
             txtEditadoConsumo.setText("SC")
@@ -80,11 +107,64 @@ class visualizar_datos_seleccionados: AppCompatActivity(), View.OnClickListener 
                     Log.e(scanner_numSerie.TAG, e.message.toString())
                 }
             }
+
+            R.id.btnBorrar->{
+                try {
+                    showtDialog( context.getResources().getString(R.string.mesaje_borrado) ,context.getResources().getString(R.string.cuidado))
+
+                } catch (e: ActivityNotFoundException) {
+                    Log.e(scanner_numSerie.TAG, e.message.toString())
+                }
+            }
         }
+    }
+
+    override fun onBackPressed() {
+        navBack() // optional depending on your needs
     }
 
     private fun navBack(){
         startActivity(Intent(this,visualizar_datos_almacenados::class.java))
+    }
+
+    private fun borrarDato(){
+
+        preferencias = getSharedPreferences("datos", MODE_PRIVATE)
+
+        val firmaFichero = preferencias.getString("selectedItem","");
+
+        //Borramos fichero consumo
+        val dirPathConsumo = File(filesDir.absolutePath + File.separator.toString() + firmaFichero + File.separator.toString()  + "consumo.txt")
+        dirPathConsumo.delete()
+        //Borramos fichero numero serie
+        val dirPathSerie = File(filesDir.absolutePath + File.separator.toString() + firmaFichero + File.separator.toString()  + "numeroSerie.txt")
+        dirPathSerie.delete()
+
+        val dirPath = File(filesDir.absolutePath + File.separator.toString() + firmaFichero + File.separator.toString())
+        dirPath.delete()
+
+        val dirImgNumeroSerie = File(rutaImgNS.toString())
+        dirImgNumeroSerie.delete()
+
+        val dirImgConsumo = File(rutaImgConsumo.toString())
+        dirImgConsumo.delete()
+
+        navBack()
+    }
+
+    private fun showtDialog(mensage: String, titulo:String) {
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.apply {
+            setTitle(titulo)
+            setMessage(mensage)
+            setPositiveButton(context.getResources().getString(R.string.btn_aceptar)) { _, _ ->
+                borrarDato()
+            }
+            setNegativeButton(context.getResources().getString(R.string.btn_cancelar)) { _, _ ->
+
+            }
+
+        }.create().show()
     }
 
 

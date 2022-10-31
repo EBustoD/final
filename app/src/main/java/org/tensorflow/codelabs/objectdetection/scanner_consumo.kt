@@ -17,10 +17,16 @@
 package org.tensorflow.codelabs.objectdetection
 
 import android.app.Activity
-import android.content.*
+import android.app.AlertDialog
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.ContextWrapper
+import android.content.Intent
 import android.graphics.*
 import android.net.Uri
-import android.os.*
+import android.os.Build
+import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -33,13 +39,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.lifecycleScope
-import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.text.TextRecognition
-import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.task.vision.detector.Detection
 import org.tensorflow.lite.task.vision.detector.ObjectDetector
 import java.io.File
 import java.io.FileOutputStream
@@ -72,6 +74,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
     private lateinit var t: TextView
     private lateinit var currentPhotoPath: String
     private lateinit var dato: String
+    private lateinit var context : Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,6 +94,21 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         inputImageView = findViewById(R.id.imageViewRecorte)
         //imagenView
         outputImageView = findViewById(R.id.imageViewRecorte)
+
+        //preferencias para idioma
+        val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
+        val idioma = preferencias.getString("idioma_set","")
+        if(idioma == "EU"){
+            context = LocaleHelper.setLocale(this, "eu");
+
+        }else{
+            context = LocaleHelper.setLocale(this, "es");
+
+        }
+        //asignar textos
+        btnConfirmar.setText(context.getResources().getString(R.string.btn_confirmar))
+        captureImageFab.setText(context.getResources().getString(R.string.btn_escanear))
+        txtLecturaConsumo.setHint(context.getResources().getString(R.string.consumo))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -377,9 +395,9 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         try{
             var consumo = txtLecturaConsumo.text.toString()
             if(bitMapCaptura === null){
-                Toast.makeText(this, "Error!, Campo imagen vacio",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, context.getResources().getString(R.string.ErrorImagen),Toast.LENGTH_LONG).show()
             }else if(consumo.length == 0) {
-                Toast.makeText(this, "Error!, Campo consumo vacio",Toast.LENGTH_LONG).show()
+                Toast.makeText(this, context.getResources().getString(R.string.ErrorConsumoVacio),Toast.LENGTH_LONG).show()
             }else{
 
                 val dirPath = filesDir.absolutePath + File.separator.toString() + timeStamp
@@ -388,24 +406,24 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
                 //escribimos el numero, si esta editado lo marcamos
                 if(editado){
                     consumo += "_EDM"
+                    editado = false
                 }
                 File(dirPath, "consumo.txt").printWriter()
                     .use { out -> out.println(consumo) } //se escribe el numero en el ficheor
                 var name = "consumo_" + timeStamp
                 saveToInternalStorage(name, bitMapCaptura, this)
-                Toast.makeText(this, "Se a guardado el dato con exito", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, context.getResources().getString(R.string.guardarExito), Toast.LENGTH_SHORT).show()
                 //navegar a la siguiente vista
                 navegar()
             }
         } catch (e: IOException) {
-            Toast.makeText(this, "Ha ocurrido un error, vuelva a intentarlo",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, context.getResources().getString(R.string.ErrorGeneral),Toast.LENGTH_SHORT).show()
         }
     }
 
     fun navegar(){
         startActivity(Intent(this,MainActivity::class.java))
     }
-
 
 
     fun createDirectorio(dirPath : String){
@@ -538,9 +556,14 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         txtLecturaConsumo.setEnabled(true);
     }
 
+    override fun onBackPressed() {
+        navBack() // optional depending on your needs
+    }
+
     private fun navBack(){
         startActivity(Intent(this,scanner_numSerie::class.java))
     }
+
 
 }
 

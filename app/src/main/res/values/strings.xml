@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">Lector Amvisa</string>
-    <string name="tv_take_photo">Sacar Foto</string>
+    <string name="btn_start_scan">Comenzar escaneo</string>
+    <string name="btn_datos_almacen">Ver datos almacenados</string>
+    <string name="btn_idioma">EU</string>
+    <string name="btn_escanear">Escanear</string>
+    <string name="btn_confirmar">Confirmar</string>
+    <string name="btn_borrar">Borrar lectura</string>
+    <string name="numerSerie">Numero Serie</string>
+    <string name="consumo">Consumo</string>
+    <string name="ErrorLongitud">Longitud Erronea, verifique la lectura</string>
+    <string name="ErrorFormato">Formato Erroneo, verifique la lectura</string>
+    <string name="ErrorImagen"> Error!, Campo imagen vacio</string>
+    <string name="ErrorGeneral">Ha ocurrido un error, vuelva a intentarlo</string>
+    <string name="guardarExito"> Se a guardado el dato con exito</string>
+    <string name="ErrorConsumoVacio"> Error! campo consumo vacío</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="mesaje_borrado">¿Estas segudo de que quieres eliminar las mediciones? estos datos se perderan para siempre</string>
+    <string name="cuidado">¡Cuidado!</string>
 </resources>

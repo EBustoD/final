@@ -39,20 +39,23 @@
         android:theme="@style/Theme.ObjectDetection" >
         <activity
             android:name="org.tensorflow.codelabs.objectdetection.visualizar_datos_almacenados"
-            android:exported="false" />
-        <activity
-            android:name="org.tensorflow.codelabs.objectdetection.confirmarDato_subida"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name="org.tensorflow.codelabs.objectdetection.scanner_consumo"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name="org.tensorflow.codelabs.objectdetection.scanner_numSerie"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name="org.tensorflow.codelabs.objectdetection.visualizar_datos_seleccionados"
-            android:exported="false" />
-        <activity android:name="org.tensorflow.codelabs.objectdetection.MainActivity" >
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="org.tensorflow.codelabs.objectdetection.MainActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

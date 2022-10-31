@@ -26,27 +26,31 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ObjectDetection">
+        android:theme="@style/Theme.ObjectDetection"
+        >
         <activity
             android:name=".visualizar_datos_almacenados"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
 
         <activity
-            android:name=".confirmarDato_subida"
-            android:exported="false" />
-        <activity
             android:name=".scanner_consumo"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".scanner_numSerie"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
 
         <activity
             android:name=".visualizar_datos_seleccionados"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

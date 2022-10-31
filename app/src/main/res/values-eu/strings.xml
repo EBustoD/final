@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lector Amvisa</string>
+    <string name="btn_start_scan">Eskanerra ireki</string>
+    <string name="btn_datos_almacen">Gordetako datuak ikusi</string>
+    <string name="btn_idioma">ES</string>
+    <string name="btn_escanear">Eskaneatu</string>
+    <string name="btn_confirmar">Onartu</string>
+    <string name="numerSerie">Serie Zenbakia</string>
+    <string name="consumo">Kontsumoa</string>
+    <string name="ErrorLongitud"> Luzera okerra, mesedez egiaztatu irakurketa </string>
+    <string name="ErrorFormato">Formatu okerra, mesedez egiaztatu irakurketa</string>
+    <string name="ErrorGeneral">Arazo bat egondu dat, mesedez saiatu berriz</string>
+    <string name="ErrorImagen"> Ez da irudik aurkitu </string>
+    <string name="guardarExito"> Datua arrakastaz gordetu da </string>
+    <string name="btn_borrar">Irakurketa ezabatu</string>
+    <string name="ErrorConsumoVacio"> Kontsumo atala hutsik!</string>
+    <string name="btn_aceptar">Onartu</string>
+    <string name="btn_cancelar">Ezeztatu</string>
+    <string name="mesaje_borrado">Ziur zaude irakurketak ezabatzeaz? Datuak betirako ezabatuko dira.</string>
+    <string name="cuidado">Kontuz!</string>
+</resources>

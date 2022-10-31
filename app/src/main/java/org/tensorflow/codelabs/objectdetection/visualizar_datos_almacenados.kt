@@ -44,7 +44,6 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         val lecturas = mutableListOf<String>()
         val f: File = File(filesDir.absolutePath)
         val files = f.listFiles()
-        var cnt = 0
         for (inFile in files) {
             if (inFile.isDirectory) {
                 // is directory
@@ -54,10 +53,12 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
                 //esto quiere decir que existen tanto el fichero de numero serie y consumo
                 if(list.size > 1){
                     lecturas.add(inFile.name)
-                    cnt = 0
+                }else if (list.size == 1){
+                    File(inFile.toString() + File.separator.toString() + list.get(0)).delete()
+                    inFile.delete()
+                }else{
+                    inFile.delete()
                 }
-
-
             }
         }
         // access the listView from xml file
@@ -75,15 +76,21 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         val preferencias = getSharedPreferences("datos", MODE_PRIVATE)
         val editor: SharedPreferences.Editor = preferencias.edit()
 
+        //Guardamos el fichero seleccionado
+
+        editor.putString("selectedItem",selectedItem)
+
         //leemos fichero numSerie
         var dirPath = filesDir.absolutePath + File.separator.toString() + selectedItem
         var text = File(dirPath, "numeroSerie.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
         var editadoManualSR = ""
         if(text.length > 12){
-            editadoManualSR = text.subSequence(12,text.length).toString()
+            editadoManualSR = text.subSequence(13,text.length).toString()
         }
         var textOriginal = text.subSequence(0,12)
+
+        //escribirmos en preferencias compartidas
         editor.putString("numeroSerie",textOriginal.toString())
 
         if (editadoManualSR.length > 0){
@@ -94,6 +101,7 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
 
         editor.commit()
         finish()
+
         //leemos foto numSerie //Guardar datos foto numero serie en preferencias compartidas.
         ///data/data/org.tensorflow.codelabs.objectdetection/app_imagenesLectura
         var dirPathImgSerie = "data/data/" +  "org.tensorflow.codelabs.objectdetection" + File.separator.toString() + "app_imagenesLectura" +  File.separator.toString() + "serie_" + selectedItem + ".jpg"
@@ -109,10 +117,9 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         var textConsu = File(dirPathConsu, "consumo.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
 
-
         var editadoManualCN= ""
         if(text.length > 4){
-            editadoManualCN = textConsu.subSequence(4,textConsu.length).toString()
+            editadoManualCN = textConsu.subSequence(5,textConsu.length).toString()
         }
         var textOriginalCN = textConsu.subSequence(0,4)
 
@@ -143,23 +150,7 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         startActivity(Intent(this,visualizar_datos_seleccionados::class.java))
     }
 
-    fun imageReaderNew(root: File) {
-        val fileList: ArrayList<File> = ArrayList()
-        val listAllFiles = root.listFiles()
 
-        if (listAllFiles != null && listAllFiles.size > 0) {
-            for (currentFile in listAllFiles) {
-                if (currentFile.name.endsWith(".jpeg")) {
-                    // File absolute path
-                    Log.e("downloadFilePath", currentFile.getAbsolutePath())
-                    // File Name
-                    Log.e("downloadFileName", currentFile.getName())
-                    fileList.add(currentFile.absoluteFile)
-                }
-            }
-            Log.w("fileList", "" + fileList.size)
-        }
-    }
 
     override fun onClick(v: View?) {
         when (v?.id) {
@@ -172,6 +163,9 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
+    }
+    override fun onBackPressed() {
+        navBack() // optional depending on your needs
     }
 
     private fun navBack(){
