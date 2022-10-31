@@ -73,6 +73,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     private lateinit var currentPhotoPath: String
     private lateinit var context : Context
     private lateinit var dialog: AlertDialog
+    val cargando = dialogoCargar(this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -115,6 +116,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         if (requestCode == REQUEST_IMAGE_CAPTURE &&
             resultCode == Activity.RESULT_OK
         ) {
+
             setViewAndDetect(getCapturedImage())
         }
     }
@@ -221,6 +223,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         // Note that we run this in the background thread to avoid blocking the app UI because
         // TFLite object detection is a synchronised process.
         lifecycleScope.launch(Dispatchers.Default) { runObjectDetection(bitmap) }
+        cargando.empezarCarga()
     }
 
     /**
@@ -440,6 +443,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
                 var textoLecutaAux = txtLecturaNumeroSerie.getText().toString().replace("\\s".toRegex(),"")
 
+                cargando.terminarCarga()
                 //SI se tiene en cuenta el espacio entre la ultima letra y el resto del numero de serie la longitud son 13
                 if (textoLecutaAux.length  != 12) {
                     txtLecturaNumeroSerie.setError("Longitud Erronea, verifique la lectura")

@@ -2042,6 +2042,8 @@ id percent
 id pin
 id position
 id postLayout
+id progressBar
+id progressBar2
 id progress_circular
 id progress_horizontal
 id radio
@@ -2132,6 +2134,7 @@ id textStart
 id textTop
 id textView6
 id textView7
+id textViewCargando
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2238,6 +2241,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_confirmar_dato_subida
+layout activity_loading
 layout activity_main
 layout activity_scanner_consumo
 layout activity_scanner_numserie
@@ -2373,6 +2377,7 @@ string btn_datos_almacen
 string btn_escanear
 string btn_idioma
 string btn_start_scan
+string cargando
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern

@@ -36,6 +36,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.FileProvider
 import androidx.exifinterface.media.ExifInterface
 import androidx.lifecycle.lifecycleScope
@@ -49,6 +50,7 @@ import java.io.IOException
 import java.time.LocalDateTime
 import kotlin.math.max
 import kotlin.math.min
+
 
 
 class scanner_consumo : AppCompatActivity(), View.OnClickListener {
@@ -75,6 +77,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
     private lateinit var currentPhotoPath: String
     private lateinit var dato: String
     private lateinit var context : Context
+    private val cargando = dialogoCargar(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,6 +112,9 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         btnConfirmar.setText(context.getResources().getString(R.string.btn_confirmar))
         captureImageFab.setText(context.getResources().getString(R.string.btn_escanear))
         txtLecturaConsumo.setHint(context.getResources().getString(R.string.consumo))
+
+        //Funcion de sacar el Progress dialog
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -218,6 +224,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         // Note that we run this in the background thread to avoid blocking the app UI because
         // TFLite object detection is a synchronised process.
         lifecycleScope.launch(Dispatchers.Default) { runObjectDetection(bitmap) }
+        cargando.empezarCarga()
     }
 
     /**
@@ -549,6 +556,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         }
 
         txtLecturaConsumo.setText(consumo)
+        cargando.terminarCarga()
         return outputBitmap
     }
     private fun activarEdicion() {

@@ -72,6 +72,10 @@
         "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
     },
     {
+        "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_loading.xml.flat",
+        "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\layout\\activity_loading.xml"
+    },
+    {
         "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },

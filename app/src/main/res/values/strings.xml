@@ -18,4 +18,5 @@
     <string name="btn_cancelar">Cancelar</string>
     <string name="mesaje_borrado">¿Estas segudo de que quieres eliminar las mediciones? estos datos se perderan para siempre</string>
     <string name="cuidado">¡Cuidado!</string>
+    <string name="cargando">Cargando...</string>
 </resources>
