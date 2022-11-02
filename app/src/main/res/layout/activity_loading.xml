@@ -32,17 +32,4 @@
         android:indeterminateTintMode="src_atop"
         android:indeterminateTint="@color/amvisa"/>
 
-    <TextView
-        android:id="@+id/textViewCargando"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cargando"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.0"
-        android:textColor="@color/black"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

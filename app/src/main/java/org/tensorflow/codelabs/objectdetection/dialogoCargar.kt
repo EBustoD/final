@@ -14,9 +14,9 @@ class dialogoCargar(val activity:Activity) {
         /**set Dialogo*/
         val builder = AlertDialog.Builder(activity)
         builder.setView(dialogView)
-        builder.setCancelable(false)
         dialogo = builder.create()
         dialogo.show()
+
     }
 
     fun terminarCarga(){

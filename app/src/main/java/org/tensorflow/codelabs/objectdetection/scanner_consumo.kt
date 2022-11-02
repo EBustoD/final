@@ -22,6 +22,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.*
 import android.net.Uri
 import android.os.Build
@@ -98,6 +99,8 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         //imagenView
         outputImageView = findViewById(R.id.imageViewRecorte)
 
+        this.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        
         //preferencias para idioma
         val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
         val idioma = preferencias.getString("idioma_set","")
@@ -572,6 +575,10 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         startActivity(Intent(this,scanner_numSerie::class.java))
     }
 
+
+}
+
+operator fun Int.invoke(screenOrientationPortrait: Int) {
 
 }
 

@@ -18,6 +18,7 @@ package org.tensorflow.codelabs.objectdetection
 
 import android.app.Activity
 import android.content.*
+import android.content.pm.ActivityInfo
 import android.graphics.*
 import android.net.Uri
 import android.os.Build
@@ -94,6 +95,8 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         inputImageView = findViewById(R.id.imageViewRecorte)
         //imagenView
         outputImageView = findViewById(R.id.imageViewRecorte)
+
+        this.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
 
         //preferencias para idioma
         val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
@@ -338,7 +341,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                         "org.tensorflow.codelabs.objectdetection.fileprovider",
                         it
                     )
-
                     rutaImagen = photoURI.toString()
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)

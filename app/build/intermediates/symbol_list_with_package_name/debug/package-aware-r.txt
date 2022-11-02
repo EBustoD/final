@@ -2134,7 +2134,6 @@ id textStart
 id textTop
 id textView6
 id textView7
-id textViewCargando
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
