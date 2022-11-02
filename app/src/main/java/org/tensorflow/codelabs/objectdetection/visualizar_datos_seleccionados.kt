@@ -8,6 +8,7 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -134,20 +135,28 @@ class visualizar_datos_seleccionados: AppCompatActivity(), View.OnClickListener 
         val firmaFichero = preferencias.getString("selectedItem","");
 
         //Borramos fichero consumo
-        val dirPathConsumo = File(filesDir.absolutePath + File.separator.toString() + firmaFichero + File.separator.toString()  + "consumo.txt")
+        val dirPathConsumo = File(getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + firmaFichero + File.separator.toString()  + "consumo.txt")
         dirPathConsumo.delete()
         //Borramos fichero numero serie
-        val dirPathSerie = File(filesDir.absolutePath + File.separator.toString() + firmaFichero + File.separator.toString()  + "numeroSerie.txt")
+        val dirPathSerie = File(getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + firmaFichero + File.separator.toString()  + "numeroSerie.txt")
         dirPathSerie.delete()
 
-        val dirPath = File(filesDir.absolutePath + File.separator.toString() + firmaFichero + File.separator.toString())
+
+        //Borramos Ruta local
+        /*val dirImgNumeroSerie = File(rutaImgNS.toString())
+        dirImgNumeroSerie.delete()
+        val dirImgConsumo = File(rutaImgConsumo.toString())
+        dirImgConsumo.delete()*/
+        //Borramos Ruta DCIM
+        val dirPathImgConsu = File(getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + firmaFichero  + File.separator.toString() + "consumo_"  + firmaFichero + ".jpg")
+        val dirPathImgSerie = File(getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + firmaFichero + File.separator.toString() + "serie_"  + firmaFichero + ".jpg")
+        dirPathImgConsu.delete()
+        dirPathImgSerie.delete()
+
+        //Borramos la carpeta
+        val dirPath = File(getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + firmaFichero + File.separator.toString())
         dirPath.delete()
 
-        val dirImgNumeroSerie = File(rutaImgNS.toString())
-        dirImgNumeroSerie.delete()
-
-        val dirImgConsumo = File(rutaImgConsumo.toString())
-        dirImgConsumo.delete()
 
         navBack()
     }

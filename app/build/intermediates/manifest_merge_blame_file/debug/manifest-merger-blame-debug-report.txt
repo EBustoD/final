@@ -6,222 +6,222 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="23"
-8-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml
+8-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="30" />
-9-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml
+9-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-11-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:6:5-80
-11-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:6:22-77
+11-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:6:5-80
+11-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:6:22-77
 12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-12-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:7:5-9:40
-12-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:8:9-65
+12-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:7:5-9:40
+12-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:8:9-65
 13    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-13-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:10:5-82
-13-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:10:22-79
+13-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:10:5-82
+13-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:10:22-79
 14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-14-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:7:5-9:40
-14-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:8:9-65
+14-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:7:5-9:40
+14-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:8:9-65
 15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-15-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:6:5-80
-15-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:6:22-77
+15-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:6:5-80
+15-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:6:22-77
 16
 17    <queries>
-17-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:17:5-21:15
+17-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:17:5-21:15
 18        <intent>
-18-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:18:9-20:18
+18-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:18:9-20:18
 19            <action android:name="android.media.action.IMAGE_CAPTURE" />
-19-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:19:13-73
-19-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:19:21-70
+19-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:19:13-73
+19-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:19:21-70
 20        </intent>
 21    </queries>
 22
 23    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 24    <!-- <uses-sdk android:minSdkVersion="14"/> -->
 25    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-25-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
-25-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:22-76
+25-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:5-79
+25-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:25:22-76
 26    <uses-permission android:name="android.permission.INTERNET" />
-26-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:26:5-67
-26-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:26:22-64
+26-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:26:5-67
+26-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:26:22-64
 27    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 28
 29    <application
-29-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:23:5-73:19
+29-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:23:5-73:19
 30        android:allowBackup="true"
-30-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:24:9-35
+30-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:24:9-35
 31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-31-->[androidx.core:core:1.3.2] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\9316a1ddd3bb3a92ad492792fd619123\transformed\core-1.3.2\AndroidManifest.xml:24:18-86
+31-->[androidx.core:core:1.3.2] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\9316a1ddd3bb3a92ad492792fd619123\transformed\core-1.3.2\AndroidManifest.xml:24:18-86
 32        android:debuggable="true"
 33        android:extractNativeLibs="false"
 34        android:icon="@mipmap/ic_launcher"
-34-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:25:9-43
+34-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:25:9-43
 35        android:label="@string/app_name"
-35-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:26:9-41
+35-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:26:9-41
 36        android:roundIcon="@mipmap/ic_launcher_round"
-36-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:27:9-54
+36-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:27:9-54
 37        android:supportsRtl="true"
-37-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:28:9-35
+37-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:28:9-35
 38        android:theme="@style/Theme.ObjectDetection" >
-38-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:29:9-53
+38-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:29:9-53
 39        <activity
-39-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:31:9-34:51
+39-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:31:9-34:51
 40            android:name="org.tensorflow.codelabs.objectdetection.visualizar_datos_almacenados"
-40-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:32:13-57
+40-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:32:13-57
 41            android:exported="false"
-41-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:33:13-37
+41-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:33:13-37
 42            android:screenOrientation="portrait" />
-42-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:34:13-49
+42-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:34:13-49
 43        <activity
-43-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:37:9-40:51
+43-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:37:9-40:51
 44            android:name="org.tensorflow.codelabs.objectdetection.scanner_consumo"
-44-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:38:13-44
+44-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:38:13-44
 45            android:exported="false"
-45-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:39:13-37
+45-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:39:13-37
 46            android:screenOrientation="portrait" />
-46-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:40:13-49
+46-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:40:13-49
 47        <activity
-47-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:41:9-44:51
+47-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:41:9-44:51
 48            android:name="org.tensorflow.codelabs.objectdetection.scanner_numSerie"
-48-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:42:13-45
+48-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:42:13-45
 49            android:exported="false"
-49-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:43:13-37
+49-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:43:13-37
 50            android:screenOrientation="portrait" />
-50-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:44:13-49
+50-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:44:13-49
 51        <activity
-51-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:47:9-50:51
+51-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:47:9-50:51
 52            android:name="org.tensorflow.codelabs.objectdetection.visualizar_datos_seleccionados"
-52-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:48:13-59
+52-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:48:13-59
 53            android:exported="false"
-53-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:49:13-37
+53-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:49:13-37
 54            android:screenOrientation="portrait" />
-54-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:50:13-49
+54-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:50:13-49
 55        <activity
-55-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:52:9-58:20
+55-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:52:9-58:20
 56            android:name="org.tensorflow.codelabs.objectdetection.MainActivity"
-56-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:52:19-47
+56-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:52:19-47
 57            android:screenOrientation="portrait" >
-57-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:53:13-49
+57-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:53:13-49
 58            <intent-filter>
-58-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:54:13-57:29
+58-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:54:13-57:29
 59                <action android:name="android.intent.action.MAIN" />
-59-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:55:17-69
-59-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:55:25-66
+59-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:55:17-69
+59-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:55:25-66
 60
 61                <category android:name="android.intent.category.LAUNCHER" />
-61-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:56:17-77
-61-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:56:27-74
+61-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:56:17-77
+61-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:56:27-74
 62            </intent-filter>
 63        </activity>
 64
 65        <provider
-65-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:60:9-71:20
+65-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:60:9-71:20
 66            android:name="androidx.core.content.FileProvider"
-66-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:61:13-62
+66-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:61:13-62
 67            android:authorities="org.tensorflow.codelabs.objectdetection.fileprovider"
-67-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:62:13-87
+67-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:62:13-87
 68            android:exported="false"
-68-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:63:13-37
+68-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:63:13-37
 69            android:grantUriPermissions="true" >
-69-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:64:13-47
+69-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:64:13-47
 70            <meta-data
-70-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:65:13-67:54
+70-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:65:13-67:54
 71                android:name="android.support.FILE_PROVIDER_PATHS"
-71-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:66:17-67
+71-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:66:17-67
 72                android:resource="@xml/file_paths" />
-72-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:67:17-51
+72-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:67:17-51
 73            <meta-data
-73-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:68:13-70:39
+73-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:68:13-70:39
 74                android:name="com.google.mlkit.vision.DEPENDENCIES"
-74-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:69:17-68
+74-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:69:17-68
 75                android:value="ocr" />
-75-->C:\Users\EkaitzBustoRuizdeGor\Documents\GitHub\final\app\src\main\AndroidManifest.xml:70:17-36
+75-->C:\Users\LiherGallegoGartzian\Documents\2022\Amvisa\APP_VFINAL_AMV\final\app\src\main\AndroidManifest.xml:70:17-36
 76        </provider>
 77
 78        <service
-78-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:9:9-15:19
+78-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:9:9-15:19
 79            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
-79-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:10:13-91
+79-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:10:13-91
 80            android:directBootAware="true"
-80-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:17:13-43
+80-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:17:13-43
 81            android:exported="false" >
-81-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:11:13-37
+81-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:11:13-37
 82            <meta-data
-82-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:12:13-14:85
+82-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:12:13-14:85
 83                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
-83-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:13:17-114
+83-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:13:17-114
 84                android:value="com.google.firebase.components.ComponentRegistrar" />
-84-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:14:17-82
+84-->[com.google.android.gms:play-services-mlkit-text-recognition-common:18.0.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ca9df8e115ed43d0ae20183423469582\transformed\jetified-play-services-mlkit-text-recognition-common-18.0.0\AndroidManifest.xml:14:17-82
 85            <meta-data
-85-->[com.google.mlkit:vision-common:17.2.1] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\4e0fb576cf31a4d828a4ff7eccfa67d9\transformed\jetified-vision-common-17.2.1\AndroidManifest.xml:12:13-14:85
+85-->[com.google.mlkit:vision-common:17.2.1] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\4e0fb576cf31a4d828a4ff7eccfa67d9\transformed\jetified-vision-common-17.2.1\AndroidManifest.xml:12:13-14:85
 86                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
-86-->[com.google.mlkit:vision-common:17.2.1] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\4e0fb576cf31a4d828a4ff7eccfa67d9\transformed\jetified-vision-common-17.2.1\AndroidManifest.xml:13:17-124
+86-->[com.google.mlkit:vision-common:17.2.1] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\4e0fb576cf31a4d828a4ff7eccfa67d9\transformed\jetified-vision-common-17.2.1\AndroidManifest.xml:13:17-124
 87                android:value="com.google.firebase.components.ComponentRegistrar" />
-87-->[com.google.mlkit:vision-common:17.2.1] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\4e0fb576cf31a4d828a4ff7eccfa67d9\transformed\jetified-vision-common-17.2.1\AndroidManifest.xml:14:17-82
+87-->[com.google.mlkit:vision-common:17.2.1] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\4e0fb576cf31a4d828a4ff7eccfa67d9\transformed\jetified-vision-common-17.2.1\AndroidManifest.xml:14:17-82
 88            <meta-data
-88-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:20:13-22:85
+88-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:20:13-22:85
 89                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
-89-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:21:17-120
+89-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:21:17-120
 90                android:value="com.google.firebase.components.ComponentRegistrar" />
-90-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:22:17-82
+90-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:22:17-82
 91        </service>
 92
 93        <provider
-93-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:9:9-13:38
+93-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:9:9-13:38
 94            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
-94-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:10:13-78
+94-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:10:13-78
 95            android:authorities="org.tensorflow.codelabs.objectdetection.mlkitinitprovider"
-95-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:11:13-69
+95-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:11:13-69
 96            android:exported="false"
-96-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:12:13-37
+96-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:12:13-37
 97            android:initOrder="99" />
-97-->[com.google.mlkit:common:18.5.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:13:13-35
+97-->[com.google.mlkit:common:18.5.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\ec63dbacf0103246408fd60d68a1f365\transformed\jetified-common-18.5.0\AndroidManifest.xml:13:13-35
 98
 99        <activity
-99-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\203bb941a0bd33234d7c407f42079cc8\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+99-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\203bb941a0bd33234d7c407f42079cc8\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
 100            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-100-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\203bb941a0bd33234d7c407f42079cc8\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+100-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\203bb941a0bd33234d7c407f42079cc8\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
 101            android:exported="false"
-101-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\203bb941a0bd33234d7c407f42079cc8\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+101-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\203bb941a0bd33234d7c407f42079cc8\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
 102            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-102-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\203bb941a0bd33234d7c407f42079cc8\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+102-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\203bb941a0bd33234d7c407f42079cc8\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
 103
 104        <meta-data
-104-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\731db51f5fd5c3a23ba1d8cb79a11be6\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+104-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\731db51f5fd5c3a23ba1d8cb79a11be6\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
 105            android:name="com.google.android.gms.version"
-105-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\731db51f5fd5c3a23ba1d8cb79a11be6\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+105-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\731db51f5fd5c3a23ba1d8cb79a11be6\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
 106            android:value="@integer/google_play_services_version" />
-106-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\731db51f5fd5c3a23ba1d8cb79a11be6\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+106-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\731db51f5fd5c3a23ba1d8cb79a11be6\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
 107
 108        <service
-108-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+108-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
 109            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-109-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+109-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
 110            android:exported="false" >
-110-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+110-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
 111            <meta-data
-111-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+111-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
 112                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-112-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+112-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
 113                android:value="cct" />
-113-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+113-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\a610905bef0ea6d73a42f81f8eb9f48f\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
 114        </service>
 115        <service
-115-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:26:9-30:19
+115-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:26:9-30:19
 116            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-116-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:27:13-117
+116-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:27:13-117
 117            android:exported="false"
-117-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:28:13-37
+117-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:28:13-37
 118            android:permission="android.permission.BIND_JOB_SERVICE" >
-118-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:29:13-69
+118-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:29:13-69
 119        </service>
 120
 121        <receiver
-121-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:32:9-34:40
+121-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:32:9-34:40
 122            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-122-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:33:13-132
+122-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:33:13-132
 123            android:exported="false" />
-123-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\EkaitzBustoRuizdeGor\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:34:13-37
+123-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\LiherGallegoGartzian\.gradle\caches\transforms-3\b9449aede634a76fa45f5d6b0e93f697\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:34:13-37
 124    </application>
 125
 126</manifest>

@@ -42,7 +42,7 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         // use arrayadapter and define an array
         val arrayAdapter: ArrayAdapter<*>
         val lecturas = mutableListOf<String>()
-        val f: File = File(filesDir.absolutePath)
+        val f: File = File(getExternalFilesDir(Environment.DIRECTORY_DCIM).toString())
         val files = f.listFiles()
         for (inFile in files) {
             if (inFile.isDirectory) {
@@ -81,7 +81,8 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         editor.putString("selectedItem",selectedItem)
 
         //leemos fichero numSerie
-        var dirPath = filesDir.absolutePath + File.separator.toString() + selectedItem
+        val dirPath = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + selectedItem
+        //var dirPath = filesDir.absolutePath + File.separator.toString() + selectedItem
         var text = File(dirPath, "numeroSerie.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
         var editadoManualSR = ""
@@ -104,7 +105,8 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
 
         //leemos foto numSerie //Guardar datos foto numero serie en preferencias compartidas.
         ///data/data/org.tensorflow.codelabs.objectdetection/app_imagenesLectura
-        var dirPathImgSerie = "data/data/" +  "org.tensorflow.codelabs.objectdetection" + File.separator.toString() + "app_imagenesLectura" +  File.separator.toString() + "serie_" + selectedItem + ".jpg"
+        //var dirPathImgSerie = "data/data/" +  "org.tensorflow.codelabs.objectdetection" + File.separator.toString() + "app_imagenesLectura" +  File.separator.toString() + "serie_" + selectedItem + ".jpg"
+        val dirPathImgSerie = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + selectedItem + File.separator.toString() + "serie_"  + selectedItem + ".jpg"
         editor.putString("rutaImgNumeroSerie",dirPathImgSerie)
         editor.commit()
         finish()
@@ -113,7 +115,7 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         //LO MISMO CON EL CONSUMO Y CON LA IMAGEN (guardar ruta de la imagen y luego mostrarla en el view)
 
         //leemos fichero consumo
-        var dirPathConsu = filesDir.absolutePath + File.separator.toString() + selectedItem
+        val dirPathConsu = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + selectedItem
         var textConsu = File(dirPathConsu, "consumo.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
 
@@ -136,7 +138,10 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         finish()
         //leemos foto consumo //Guardar datos foto numero serie en preferencias compartidas.
         ///data/data/org.tensorflow.codelabs.objectdetection/app_imagenesLectura
-        var dirPathImgConsu = "data/data/" +  "org.tensorflow.codelabs.objectdetection" + File.separator.toString() + "app_imagenesLectura" +  File.separator.toString() + "consumo_" + selectedItem + ".jpg"
+        //var dirPathImgConsu = "data/data/" +  "org.tensorflow.codelabs.objectdetection" + File.separator.toString() + "app_imagenesLectura" +  File.separator.toString() + "consumo_" + selectedItem + ".jpg"
+        //val dirPathImgConsu = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + "consumo_"  + selectedItem + ".jpg"
+        val dirPathImgConsu = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + selectedItem + File.separator.toString() + "consumo_"  + selectedItem + ".jpg"
+
         editor.putString("rutaImgConsumo",dirPathImgConsu)
         editor.commit()
         finish()

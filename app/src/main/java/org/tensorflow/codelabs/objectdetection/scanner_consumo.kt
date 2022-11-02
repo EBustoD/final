@@ -410,7 +410,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, context.getResources().getString(R.string.ErrorConsumoVacio),Toast.LENGTH_LONG).show()
             }else{
 
-                val dirPath = filesDir.absolutePath + File.separator.toString() + timeStamp
+                val dirPath = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + timeStamp
                 createDirectorio(dirPath)
 
                 //escribimos el numero, si esta editado lo marcamos
@@ -444,16 +444,24 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
     private fun saveToInternalStorage(name: String, bitmapImage: Bitmap?, context: Context): String {
         val cw = ContextWrapper(context.applicationContext)
         // path to /data/data/yourapp/app_data/imageDir
-        val directory = cw.getDir("imagenesLectura", Context.MODE_PRIVATE)
+        //val directory = cw.getDir("imagenesLectura", Context.MODE_PRIVATE)
+
+        val dirPath = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + timeStamp
         // Create imageDir
         // Log.d("PATH", directory.path)
-        val mypath = File(directory, name+".jpg")
+        val mypath = File(dirPath, name+".jpg")
+        val mypathAux = File(dirPath, name+".jpg")
 
         var fos: FileOutputStream? = null
         try {
-            fos = FileOutputStream(mypath)
+            //fos = FileOutputStream(mypath)
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            //bitmapImage?.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+
+            fos = FileOutputStream(mypathAux)
             // Use the compress method on the BitMap object to write image to the OutputStream
             bitmapImage?.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+
         } catch (e: Exception) {
             e.printStackTrace()
         } finally {
@@ -464,7 +472,8 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
             }
 
         }
-        return directory.absolutePath
+        //return directory.absolutePath
+        return dirPath
     }
 
     //Detectar numeros en el recorte del contador
