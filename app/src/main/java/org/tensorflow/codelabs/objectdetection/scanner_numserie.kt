@@ -446,7 +446,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                 var textoLecutaAux = txtLecturaNumeroSerie.getText().toString().replace("\\s".toRegex(),"")
 
                 cargando.terminarCarga()
-                //SI se tiene en cuenta el espacio entre la ultima letra y el resto del numero de serie la longitud son 13
+
                 if (textoLecutaAux.length  != 12) {
                     txtLecturaNumeroSerie.setError("Longitud Erronea, verifique la lectura")
                 } else if (!comprobarFormato(textoLecutaAux)) {
@@ -463,9 +463,8 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     }
 
     fun comprobarFormato(numSerie: String): Boolean {
-        Log.d("LONGITUD", "LONGITUD CORRECTA")
         val numSerieArr = numSerie.toCharArray()
-        var vuelta = false
+        var isCorrect = false
         if (numSerieArr[0].isLetter()) {
             if (numSerieArr[1].isDigit()) {
                 if (numSerieArr[2].isDigit()) {
@@ -478,7 +477,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                                             if (numSerieArr[9].isDigit()) {
                                                 if (numSerieArr[10].isDigit()) {
                                                         if (numSerieArr[11].isLetter()) {
-                                                            vuelta = true
+                                                            isCorrect = true
                                                             Log.d("FORMATO", "FORMATO CORRECTO")
                                                         }
                                                 }
@@ -493,7 +492,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             }
 
         }
-        return vuelta
+        return isCorrect
     }
 
 
