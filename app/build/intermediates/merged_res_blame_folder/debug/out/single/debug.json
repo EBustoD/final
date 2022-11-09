@@ -20,12 +20,12 @@
         "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_visualizar_datos_almacenados.xml.flat",
-        "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\layout\\activity_visualizar_datos_almacenados.xml"
-    },
-    {
         "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_visualizar_datos_almacenados.xml.flat",
+        "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\layout\\activity_visualizar_datos_almacenados.xml"
     },
     {
         "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\drawable_orekait.png.flat",
@@ -56,12 +56,12 @@
         "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
-    },
-    {
         "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
         "merged": "C:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_visualizar_dato_seleccionado.xml.flat",

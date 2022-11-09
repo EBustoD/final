@@ -526,47 +526,36 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         bitmap: Bitmap,
         detectionResults: List<DetectionResultDigitos>
     ): Bitmap? {
-
-        //lista en la que se almacenan los numeros detectados
-        val sortedValues = mutableListOf(0 to "x")
-        sortedValues.removeFirst()
-
         //Utiles para editar la imagen y pintar las detecciones encima
-
         val pen = Paint()
         val outputBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
         val canvas = Canvas(outputBitmap)
-
+        //lista en la que se almacenan los numeros detectados
+        val sortedValues = mutableListOf(0 to "x")
+        sortedValues.removeFirst()
         //recorro la lista de detecciones
         detectionResults.forEach {
             pen.color = Color.rgb(19, 118, 91)
             pen.strokeWidth = 4F
             pen.style = Paint.Style.STROKE
-
             val box = it.boundingBox
             canvas.drawRect(box, pen)
-
             val left = it.boundingBox.left.toInt()
             Log.d("Izq", left.toString())
             Log.d("Numero", it.text)
-
             //Quito los ultimos 5 caracteres de el label de la deteccion
             var numeroDepurado = it.text.dropLast(5)
             sortedValues.add(left to numeroDepurado)
-
             Log.d("LISTA", sortedValues.toString())
-
         }
         //ordeno la lista de pares (coordenada,consumo) por coordenadas
         sortedValues.sortBy { it.first }
         Log.d("LISTAORDENADA", sortedValues.toString())
-
         var consumo = ""
         //encadeno los numeros del consumo en uno solo
         sortedValues.forEach {
             consumo = consumo.plus(it.second)
         }
-
         txtLecturaConsumo.setText(consumo)
         cargando.terminarCarga()
         return outputBitmap
@@ -590,12 +579,6 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
 operator fun Int.invoke(screenOrientationPortrait: Int) {
 
 }
-
-/**
- * DetectionResultContador
- *      Clase en la que se guardan los objetos contador
- */
-data class DetectionResultContador(val boundingBox: RectF, val text: String)
 
 /**
  * DetectionResultDigitos

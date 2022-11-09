@@ -492,6 +492,8 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             }
 
         }
+
+        //  val regex = "Q([0-9])".toRegex()
         return isCorrect
     }
 
