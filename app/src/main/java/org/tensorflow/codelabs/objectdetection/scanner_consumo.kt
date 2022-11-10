@@ -419,7 +419,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
                     editado = false
                 }
                 File(dirPath, "consumo.txt").printWriter()
-                    .use { out -> out.println(consumo) } //se escribe el numero en el ficheor
+                    .use { out -> out.println(consumo) } //se escribe el numero en el fichero
                 var name = "consumo_" + timeStamp
                 saveToInternalStorage(name, bitMapCaptura, this)
                 Toast.makeText(this, context.getResources().getString(R.string.guardarExito), Toast.LENGTH_SHORT).show()

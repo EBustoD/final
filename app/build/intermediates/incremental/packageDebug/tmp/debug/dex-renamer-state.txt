@@ -1,4 +1,4 @@
-#Wed Nov 09 09:52:43 CET 2022
+#Thu Nov 10 10:35:17 CET 2022
 base.1=C\:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
 path.1=classes.dex
 base.0=C\:\\Users\\EkaitzBustoRuizdeGor\\Documents\\GitHub\\final\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex

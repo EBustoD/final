@@ -403,15 +403,11 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                 val cornerPoints = block.cornerPoints
                 val text = block.text
                 Log.d("texto", text)
-
                 var textoRefinado = ""
-
                 // Si todos los numeros de serie empiezan por Q, cambio el primer caracter para que sea una Q siempre
                 textoRefinado = text.substring(0, 0) + 'Q' + text.substring(1)
-
                 //Como siguen el mismo formato de LNNLLNNNNN... puedo comprobar si despues de las segundas letras lee una O y cambiarlo por 0
                 //Primero miro la longitud total para que no pete si hace un substring de algo corto
-
                 if (textoRefinado.length > 12) {
                     if (textoRefinado.get(5) == 'O') {
                         textoRefinado =
@@ -438,66 +434,28 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                             textoRefinado.substring(0, 10) + '0' + textoRefinado.substring(11)
                     }
                 }
-
                 txtLecturaNumeroSerie.setText(textoRefinado.replace("\\s".toRegex(),"")) //Quitamos espacion en blanco
-
                 Log.d("Longitud", textoRefinado.length.toString())
-
                 var textoLecutaAux = txtLecturaNumeroSerie.getText().toString().replace("\\s".toRegex(),"")
-
                 cargando.terminarCarga()
-
                 if (textoLecutaAux.length  != 12) {
                     txtLecturaNumeroSerie.setError("Longitud Erronea, verifique la lectura")
                 } else if (!comprobarFormato(textoLecutaAux)) {
                     txtLecturaNumeroSerie.setError("Formato Erroneo, verifique la lectura")
                 }
-                //Log.d("textoFinal", textoRefinado)
             }
         }
             .addOnFailureListener { e ->
                 //Except
             }
-
-
     }
 
     fun comprobarFormato(numSerie: String): Boolean {
-        val numSerieArr = numSerie.toCharArray()
-        var isCorrect = false
-        if (numSerieArr[0].isLetter()) {
-            if (numSerieArr[1].isDigit()) {
-                if (numSerieArr[2].isDigit()) {
-                    if (numSerieArr[3].isLetter()) {
-                        if (numSerieArr[4].isLetter()) {
-                            if (numSerieArr[5].isDigit()) {
-                                if (numSerieArr[6].isDigit()) {
-                                    if (numSerieArr[7].isDigit()) {
-                                        if (numSerieArr[8].isDigit()) {
-                                            if (numSerieArr[9].isDigit()) {
-                                                if (numSerieArr[10].isDigit()) {
-                                                        if (numSerieArr[11].isLetter()) {
-                                                            isCorrect = true
-                                                            Log.d("FORMATO", "FORMATO CORRECTO")
-                                                        }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-        }
-
-        //  val regex = "Q([0-9])".toRegex()
-        return isCorrect
+        val regex = Regex(pattern = "([a-zA-Z]+([0-9]+[a-zA-Z]+)+)", options = setOf(RegexOption.IGNORE_CASE))
+        Log.d("matches", regex.matches(numSerie).toString())
+        return regex.matches(numSerie)
     }
-
-
+    
     //guardaremos el dato en un en el fichero local y navegamos a la siguiente vista
     @RequiresApi(Build.VERSION_CODES.O)
     fun confirmarDato(){
