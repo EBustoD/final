@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import java.io.File
 
 
-class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
+class visualizar_datos_almacenados : AppCompatActivity(), View.OnClickListener {
     private lateinit var listViewLecturas: ListView
     private lateinit var txtLecturaNumeroSerie: com.google.android.material.textfield.TextInputEditText
     private lateinit var btnAtras: Button
@@ -51,12 +51,12 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
                 var list = inFile.list()
 
                 //esto quiere decir que existen tanto el fichero de numero serie y consumo
-                if(list.size > 1){
+                if (list.size > 1) {
                     lecturas.add(inFile.name)
-                }else if (list.size == 1){
+                } else if (list.size == 1) {
                     File(inFile.toString() + File.separator.toString() + list.get(0)).delete()
                     inFile.delete()
-                }else{
+                } else {
                     inFile.delete()
                 }
             }
@@ -65,12 +65,14 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         //var mListView = findViewById<ListView>(R.id.lecturasList)
         //cambio el orden para que las lecturas nuevas salgan las primeras en el ListView
         lecturas.reverse()
-        arrayAdapter = ArrayAdapter(this,
-            android.R.layout.simple_list_item_1, lecturas)
+        arrayAdapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1, lecturas
+        )
         listViewLecturas.adapter = arrayAdapter
     }
 
-    fun navToVisualizadoDato(selectedItem : String){
+    fun navToVisualizadoDato(selectedItem: String) {
 
         //Variables para preferencias compartidas
         val preferencias = getSharedPreferences("datos", MODE_PRIVATE)
@@ -78,26 +80,27 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
 
         //Guardamos el fichero seleccionado
 
-        editor.putString("selectedItem",selectedItem)
+        editor.putString("selectedItem", selectedItem)
 
         //leemos fichero numSerie
-        val dirPath = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + selectedItem
+        val dirPath =
+            getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + selectedItem
         //var dirPath = filesDir.absolutePath + File.separator.toString() + selectedItem
         var text = File(dirPath, "numeroSerie.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
         var editadoManualSR = ""
-        if(text.length > 12){
-            editadoManualSR = text.subSequence(13,text.length).toString()
+        if (text.length > 12) {
+            editadoManualSR = text.subSequence(13, text.length).toString()
         }
-        var textOriginal = text.subSequence(0,12)
+        var textOriginal = text.subSequence(0, 12)
 
         //escribirmos en preferencias compartidas
-        editor.putString("numeroSerie",textOriginal.toString())
+        editor.putString("numeroSerie", textOriginal.toString())
 
-        if (editadoManualSR.length > 0){
-            editor.putString("EDM_SN","true")
-        }else{
-            editor.putString("EDM_SN","false")
+        if (editadoManualSR.length > 0) {
+            editor.putString("EDM_SN", "true")
+        } else {
+            editor.putString("EDM_SN", "false")
         }
 
         editor.commit()
@@ -106,8 +109,9 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         //leemos foto numSerie //Guardar datos foto numero serie en preferencias compartidas.
         ///data/data/org.tensorflow.codelabs.objectdetection/app_imagenesLectura
         //var dirPathImgSerie = "data/data/" +  "org.tensorflow.codelabs.objectdetection" + File.separator.toString() + "app_imagenesLectura" +  File.separator.toString() + "serie_" + selectedItem + ".jpg"
-        val dirPathImgSerie = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + selectedItem + File.separator.toString() + "serie_"  + selectedItem + ".jpg"
-        editor.putString("rutaImgNumeroSerie",dirPathImgSerie)
+        val dirPathImgSerie =
+            getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + selectedItem + File.separator.toString() + "serie_" + selectedItem + ".jpg"
+        editor.putString("rutaImgNumeroSerie", dirPathImgSerie)
         editor.commit()
         finish()
 
@@ -115,22 +119,23 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         //LO MISMO CON EL CONSUMO Y CON LA IMAGEN (guardar ruta de la imagen y luego mostrarla en el view)
 
         //leemos fichero consumo
-        val dirPathConsu = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + selectedItem
+        val dirPathConsu =
+            getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + selectedItem
         var textConsu = File(dirPathConsu, "consumo.txt").readText().toString()
         //Guardar datos numero serie en preferencias compartidas
 
-        var editadoManualCN= ""
-        if(text.length > 4){
-            editadoManualCN = textConsu.subSequence(5,textConsu.length).toString()
+        var editadoManualCN = ""
+        if (text.length > 4) {
+            editadoManualCN = textConsu.subSequence(5, textConsu.length).toString()
         }
-        var textOriginalCN = textConsu.subSequence(0,4)
+        var textOriginalCN = textConsu.subSequence(0, 4)
 
-        editor.putString("consumo",textOriginalCN.toString() )
+        editor.putString("consumo", textOriginalCN.toString())
 
-        if (editadoManualCN.length > 0){
-            editor.putString("EDM_CN","true")
-        }else{
-            editor.putString("EDM_CN","false")
+        if (editadoManualCN.length > 0) {
+            editor.putString("EDM_CN", "true")
+        } else {
+            editor.putString("EDM_CN", "false")
         }
 
 
@@ -140,9 +145,10 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         ///data/data/org.tensorflow.codelabs.objectdetection/app_imagenesLectura
         //var dirPathImgConsu = "data/data/" +  "org.tensorflow.codelabs.objectdetection" + File.separator.toString() + "app_imagenesLectura" +  File.separator.toString() + "consumo_" + selectedItem + ".jpg"
         //val dirPathImgConsu = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + "consumo_"  + selectedItem + ".jpg"
-        val dirPathImgConsu = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + selectedItem + File.separator.toString() + "consumo_"  + selectedItem + ".jpg"
+        val dirPathImgConsu =
+            getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + selectedItem + File.separator.toString() + "consumo_" + selectedItem + ".jpg"
 
-        editor.putString("rutaImgConsumo",dirPathImgConsu)
+        editor.putString("rutaImgConsumo", dirPathImgConsu)
         editor.commit()
         finish()
 
@@ -151,15 +157,14 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
         navegar()
     }
 
-    fun navegar(){
-        startActivity(Intent(this,visualizar_datos_seleccionados::class.java))
+    fun navegar() {
+        startActivity(Intent(this, visualizar_datos_seleccionados::class.java))
     }
-
 
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btnBack->{
+            R.id.btnBack -> {
                 try {
                     navBack()
 
@@ -169,12 +174,13 @@ class visualizar_datos_almacenados: AppCompatActivity(), View.OnClickListener {
             }
         }
     }
+
     override fun onBackPressed() {
         navBack() // optional depending on your needs
     }
 
-    private fun navBack(){
-        startActivity(Intent(this,MainActivity::class.java))
+    private fun navBack() {
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
 

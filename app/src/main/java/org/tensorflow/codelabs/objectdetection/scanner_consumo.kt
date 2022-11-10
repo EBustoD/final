@@ -53,19 +53,19 @@ import kotlin.math.max
 import kotlin.math.min
 
 
-
 class scanner_consumo : AppCompatActivity(), View.OnClickListener {
     companion object {
         const val TAG = "TFLite - ODT"
         const val REQUEST_IMAGE_CAPTURE: Int = 1
         private const val MAX_FONT_SIZE = 96F
     }
+
     /*private var ocrModel: OCRTextModelExecutor? = null*/
     var rutaImagen = ""
     var timeStamp = ""
     var editado = false
     var bitMapCaptura: Bitmap? = null
-    private lateinit var  intentAux: Intent
+    private lateinit var intentAux: Intent
     private lateinit var captureImageFab: Button
     private lateinit var btnConfirmar: Button
     private lateinit var btnEditar: Button
@@ -77,7 +77,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
     private lateinit var t: TextView
     private lateinit var currentPhotoPath: String
     private lateinit var dato: String
-    private lateinit var context : Context
+    private lateinit var context: Context
     private val cargando = dialogoCargar(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,14 +100,14 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         outputImageView = findViewById(R.id.imageViewRecorte)
 
         this.requestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
-        
+
         //preferencias para idioma
         val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
-        val idioma = preferencias.getString("idioma_set","")
-        if(idioma == "EU"){
+        val idioma = preferencias.getString("idioma_set", "")
+        if (idioma == "EU") {
             context = LocaleHelper.setLocale(this, "eu");
 
-        }else{
+        } else {
             context = LocaleHelper.setLocale(this, "es");
 
         }
@@ -157,7 +157,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
                 }
             }
 
-            R.id.btnEdit ->{
+            R.id.btnEdit -> {
                 try {
                     activarEdicion()
 
@@ -166,7 +166,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
                 }
             }
 
-            R.id.btnBack->{
+            R.id.btnBack -> {
                 try {
                     navBack()
 
@@ -211,7 +211,6 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         // Pintar la deteccion en un bitmap y mostrarlo
         drawDetectionResult(bitmap, resultToDisplay)
     }
-
 
 
     /**
@@ -308,9 +307,10 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         //timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
 
         val preferencias = getSharedPreferences("datosTimeStamp", MODE_PRIVATE)
-        timeStamp = preferencias.getString("timeStamp","").toString();
+        timeStamp = preferencias.getString("timeStamp", "").toString();
 
-        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES + File.separator.toString())
+        val storageDir: File? =
+            getExternalFilesDir(Environment.DIRECTORY_PICTURES + File.separator.toString())
         return File.createTempFile(
             "JPEG_${timeStamp}_", /* prefix */
             ".jpg", /* suffix */
@@ -375,12 +375,12 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
             val right = it.boundingBox.right.toInt()
             val bottom = it.boundingBox.bottom.toInt()
 
-            Log.d("Izq",left.toString())
-            Log.d("Arriba",top.toString())
-            Log.d("Der",right.toString())
-            Log.d("Abajo",bottom.toString())
-            Log.d("ancho",it.boundingBox.width().toString())
-            Log.d("caja",it.boundingBox.toString())
+            Log.d("Izq", left.toString())
+            Log.d("Arriba", top.toString())
+            Log.d("Der", right.toString())
+            Log.d("Abajo", bottom.toString())
+            Log.d("ancho", it.boundingBox.width().toString())
+            Log.d("caja", it.boundingBox.toString())
 
             val bitmapSalida = Bitmap.createBitmap(
                 bitmap,
@@ -399,22 +399,31 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
 
     //guardaremos el dato en un en el fichero local y navegamos a la siguiente vista
     @RequiresApi(Build.VERSION_CODES.O)
-    fun confirmarDato(){
+    fun confirmarDato() {
 
         //Escribir en el fichero
-        try{
+        try {
             var consumo = txtLecturaConsumo.text.toString()
-            if(bitMapCaptura === null){
-                Toast.makeText(this, context.getResources().getString(R.string.ErrorImagen),Toast.LENGTH_LONG).show()
-            }else if(consumo.length == 0) {
-                Toast.makeText(this, context.getResources().getString(R.string.ErrorConsumoVacio),Toast.LENGTH_LONG).show()
-            }else{
+            if (bitMapCaptura === null) {
+                Toast.makeText(
+                    this,
+                    context.getResources().getString(R.string.ErrorImagen),
+                    Toast.LENGTH_LONG
+                ).show()
+            } else if (consumo.length == 0) {
+                Toast.makeText(
+                    this,
+                    context.getResources().getString(R.string.ErrorConsumoVacio),
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
 
-                val dirPath = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + timeStamp
+                val dirPath =
+                    getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + timeStamp
                 createDirectorio(dirPath)
 
                 //escribimos el numero, si esta editado lo marcamos
-                if(editado){
+                if (editado) {
                     consumo += "_EDM"
                     editado = false
                 }
@@ -422,46 +431,56 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
                     .use { out -> out.println(consumo) } //se escribe el numero en el fichero
                 var name = "consumo_" + timeStamp
                 saveToInternalStorage(name, bitMapCaptura, this)
-                Toast.makeText(this, context.getResources().getString(R.string.guardarExito), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    context.getResources().getString(R.string.guardarExito),
+                    Toast.LENGTH_SHORT
+                ).show()
                 //navegar a la siguiente vista
                 navegar()
             }
         } catch (e: IOException) {
-            Toast.makeText(this, context.getResources().getString(R.string.ErrorGeneral),Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                context.getResources().getString(R.string.ErrorGeneral),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
-    fun navegar(){
-        startActivity(Intent(this,MainActivity::class.java))
+    fun navegar() {
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
-
-    fun createDirectorio(dirPath : String){
+    fun createDirectorio(dirPath: String) {
         val projDir = File(dirPath)
-        if (!projDir.exists()){ projDir.mkdirs() }
+        if (!projDir.exists()) {
+            projDir.mkdirs()
+        }
     }
 
-    private fun saveToInternalStorage(name: String, bitmapImage: Bitmap?, context: Context): String {
+    private fun saveToInternalStorage(
+        name: String,
+        bitmapImage: Bitmap?,
+        context: Context
+    ): String {
         val cw = ContextWrapper(context.applicationContext)
         // path to /data/data/yourapp/app_data/imageDir
         //val directory = cw.getDir("imagenesLectura", Context.MODE_PRIVATE)
-
-        val dirPath = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + timeStamp
+        val dirPath =
+            getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + timeStamp
         // Create imageDir
         // Log.d("PATH", directory.path)
-        val mypath = File(dirPath, name+".jpg")
-        val mypathAux = File(dirPath, name+".jpg")
-
+        val mypath = File(dirPath, name + ".jpg")
+        val mypathAux = File(dirPath, name + ".jpg")
         var fos: FileOutputStream? = null
         try {
             //fos = FileOutputStream(mypath)
             // Use the compress method on the BitMap object to write image to the OutputStream
             //bitmapImage?.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-
             fos = FileOutputStream(mypathAux)
             // Use the compress method on the BitMap object to write image to the OutputStream
             bitmapImage?.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-
         } catch (e: Exception) {
             e.printStackTrace()
         } finally {
@@ -470,12 +489,10 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-
         }
         //return directory.absolutePath
         return dirPath
     }
-
     //Detectar numeros en el recorte del contador
 
     /**
@@ -497,22 +514,18 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
             "digitos.tflite",
             options
         )
-
         // Step 3: Feed given image to the detector
         val results = detector.detect(image)
-
         // Step 4: Parse the detection result and show it
         val resultToDisplay = results.map {
             // Get the top-1 category and craft the display text
             val category = it.categories.first()
             val text = "${category.label}, ${category.score.times(100).toInt()}%"
-
             // Create a data object to display the detection result
             DetectionResultDigitos(it.boundingBox, text)
         }
         // Draw the detection result on the bitmap and show it.
         val bitmapSalida = extraerConsumo(bitmap, resultToDisplay)
-
         runOnUiThread {
             outputImageView.setImageBitmap(bitmapSalida)
         }
@@ -560,6 +573,7 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         cargando.terminarCarga()
         return outputBitmap
     }
+
     private fun activarEdicion() {
         editado = true
         txtLecturaConsumo.setEnabled(true);
@@ -569,10 +583,9 @@ class scanner_consumo : AppCompatActivity(), View.OnClickListener {
         navBack() // optional depending on your needs
     }
 
-    private fun navBack(){
-        startActivity(Intent(this,scanner_numSerie::class.java))
+    private fun navBack() {
+        startActivity(Intent(this, scanner_numSerie::class.java))
     }
-
 
 }
 

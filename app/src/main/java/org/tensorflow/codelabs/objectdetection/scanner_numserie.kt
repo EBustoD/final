@@ -59,6 +59,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         const val REQUEST_IMAGE_CAPTURE: Int = 1
         private const val MAX_FONT_SIZE = 96F
     }
+
     /*private var ocrModel: OCRTextModelExecutor? = null*/
     var rutaImagen = ""
     var timeStamp = ""
@@ -72,7 +73,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     private lateinit var outputImageView: ImageView
     private lateinit var txtLecturaNumeroSerie: com.google.android.material.textfield.TextInputEditText
     private lateinit var currentPhotoPath: String
-    private lateinit var context : Context
+    private lateinit var context: Context
     private lateinit var dialog: AlertDialog
     val cargando = dialogoCargar(this)
 
@@ -91,7 +92,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         btnAtras.setOnClickListener(this)
         //configuracion del textView
         txtLecturaNumeroSerie = findViewById(R.id.txtLecturaNumeroSerie)
-       //textoOCR = findViewById(R.id.textViewOCR)
+        //textoOCR = findViewById(R.id.textViewOCR)
         inputImageView = findViewById(R.id.imageViewRecorte)
         //imagenView
         outputImageView = findViewById(R.id.imageViewRecorte)
@@ -100,10 +101,10 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
         //preferencias para idioma
         val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
-        val idioma = preferencias.getString("idioma_set","")
-        if(idioma == "EU"){
+        val idioma = preferencias.getString("idioma_set", "")
+        if (idioma == "EU") {
             context = LocaleHelper.setLocale(this, "eu");
-        }else{
+        } else {
             context = LocaleHelper.setLocale(this, "es");
 
         }
@@ -152,7 +153,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                 }
             }
 
-            R.id.btnEdit ->{
+            R.id.btnEdit -> {
                 try {
                     activarEdicion()
 
@@ -161,7 +162,7 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                 }
             }
 
-            R.id.btnBack->{
+            R.id.btnBack -> {
                 try {
                     navBack()
 
@@ -183,13 +184,13 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
 
         // Step 2: Initialize the detector object
         val options = ObjectDetector.ObjectDetectorOptions.builder()
-                .setMaxResults(5)
-                .setScoreThreshold(0.2f)
-                .build()
+            .setMaxResults(5)
+            .setScoreThreshold(0.2f)
+            .build()
         val detector = ObjectDetector.createFromFileAndOptions(
-                this,
-                "numSerie.tflite",
-                options
+            this,
+            "numSerie.tflite",
+            options
         )
 
         // Step 3: Feed given image to the detector
@@ -211,8 +212,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             inputImageView.setImageBitmap(imgWithResult)
         }
     }
-
-
 
     /**
      * setViewAndDetect(bitmap: Bitmap)
@@ -279,8 +278,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-
-
     /**
      * rotateImage():
      *     Decodes and crops the captured image from camera.
@@ -302,11 +299,12 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     @Throws(IOException::class)
     private fun createImageFile(): File {
         val current = LocalDateTime.now().toString() //fecha y hora actual
-       // var dirArchivoFt = File(filesDir.absolutePath + File.separator.toString() +"_"+ current)
+        // var dirArchivoFt = File(filesDir.absolutePath + File.separator.toString() +"_"+ current)
 
         // Create an image file name
-         timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES + File.separator.toString())
+        timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val storageDir: File? =
+            getExternalFilesDir(Environment.DIRECTORY_PICTURES + File.separator.toString())
         return File.createTempFile(
             "JPEG_${timeStamp}_", /* prefix */
             ".jpg", /* suffix */
@@ -375,14 +373,20 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             val right = it.boundingBox.right.toInt()
             val bottom = it.boundingBox.bottom.toInt()
 
-            Log.d("Izq",left.toString())
-            Log.d("Arriba",top.toString())
-            Log.d("Der",right.toString())
-            Log.d("Abajo",bottom.toString())
-            Log.d("ancho",it.boundingBox.width().toString())
-            Log.d("caja",it.boundingBox.toString())
+            Log.d("Izq", left.toString())
+            Log.d("Arriba", top.toString())
+            Log.d("Der", right.toString())
+            Log.d("Abajo", bottom.toString())
+            Log.d("ancho", it.boundingBox.width().toString())
+            Log.d("caja", it.boundingBox.toString())
 
-            val bitmapSalida = Bitmap.createBitmap(bitmap, it.boundingBox.left.toInt(),it.boundingBox.top.toInt(),it.boundingBox.width().toInt(),it.boundingBox.height().toInt())
+            val bitmapSalida = Bitmap.createBitmap(
+                bitmap,
+                it.boundingBox.left.toInt(),
+                it.boundingBox.top.toInt(),
+                it.boundingBox.width().toInt(),
+                it.boundingBox.height().toInt()
+            )
             //Se pasa a el ocr
             recognizeTexts(bitmapSalida)
             runOnUiThread {
@@ -434,11 +438,17 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                             textoRefinado.substring(0, 10) + '0' + textoRefinado.substring(11)
                     }
                 }
-                txtLecturaNumeroSerie.setText(textoRefinado.replace("\\s".toRegex(),"")) //Quitamos espacion en blanco
+                txtLecturaNumeroSerie.setText(
+                    textoRefinado.replace(
+                        "\\s".toRegex(),
+                        ""
+                    )
+                ) //Quitamos espacion en blanco
                 Log.d("Longitud", textoRefinado.length.toString())
-                var textoLecutaAux = txtLecturaNumeroSerie.getText().toString().replace("\\s".toRegex(),"")
+                var textoLecutaAux =
+                    txtLecturaNumeroSerie.getText().toString().replace("\\s".toRegex(), "")
                 cargando.terminarCarga()
-                if (textoLecutaAux.length  != 12) {
+                if (textoLecutaAux.length != 12) {
                     txtLecturaNumeroSerie.setError("Longitud Erronea, verifique la lectura")
                 } else if (!comprobarFormato(textoLecutaAux)) {
                     txtLecturaNumeroSerie.setError("Formato Erroneo, verifique la lectura")
@@ -451,36 +461,47 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
     }
 
     fun comprobarFormato(numSerie: String): Boolean {
-        val regex = Regex(pattern = "([a-zA-Z]+([0-9]+[a-zA-Z]+)+)", options = setOf(RegexOption.IGNORE_CASE))
-        Log.d("matches", regex.matches(numSerie).toString())
+        val regex = Regex(
+            pattern = "([a-zA-Z]+([0-9]+[a-zA-Z]+)+)",
+            options = setOf(RegexOption.IGNORE_CASE)
+        )
         return regex.matches(numSerie)
     }
-    
+
     //guardaremos el dato en un en el fichero local y navegamos a la siguiente vista
     @RequiresApi(Build.VERSION_CODES.O)
-    fun confirmarDato(){
-        var textoLectura = txtLecturaNumeroSerie.getText().toString().replace("\\s".toRegex(),"")
+    fun confirmarDato() {
+        var textoLectura = txtLecturaNumeroSerie.getText().toString().replace("\\s".toRegex(), "")
         //Escribir en el fichero
-        try{
+        try {
 
             //SI se tiene en cuenta el espacio entre la ultima letra y el resto del numero de serie la longitud son 13
-            if (textoLectura.length  != 12) {
-                txtLecturaNumeroSerie.setError(context.getResources().getString(R.string.ErrorLongitud))
+            if (textoLectura.length != 12) {
+                txtLecturaNumeroSerie.setError(
+                    context.getResources().getString(R.string.ErrorLongitud)
+                )
 
             } else if (!comprobarFormato(textoLectura)) {
-                txtLecturaNumeroSerie.setError(context.getResources().getString(R.string.ErrorFormato))
-            }else{
+                txtLecturaNumeroSerie.setError(
+                    context.getResources().getString(R.string.ErrorFormato)
+                )
+            } else {
                 //Variables
                 var numeroSerie = textoLectura
 
-                if(bitMapCaptura === null){
-                    Toast.makeText(this, context.getResources().getString(R.string.ErrorImagen),Toast.LENGTH_LONG).show()
-                }else {
-                    val dirPath = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + timeStamp
+                if (bitMapCaptura === null) {
+                    Toast.makeText(
+                        this,
+                        context.getResources().getString(R.string.ErrorImagen),
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    val dirPath =
+                        getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + timeStamp
                     createDirectorio(dirPath)
 
                     //escribimos el numero, si se a editado a mano se lo marcamos
-                    if(editado){
+                    if (editado) {
                         numeroSerie += "_EDM"
                         editado = false
                     }
@@ -490,7 +511,11 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
                     val imgPath = File(dirPath, "numeroSerie.jpg")
                     var name = "serie_" + timeStamp
                     saveToInternalStorage(name, bitMapCaptura, this)
-                    Toast.makeText(this, context.getResources().getString(R.string.guardarExito), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        context.getResources().getString(R.string.guardarExito),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     //Guardamos el timeStamp para la proximavista
                     val preferencias = getSharedPreferences("datosTimeStamp", MODE_PRIVATE)
                     val editor: SharedPreferences.Editor = preferencias.edit()
@@ -503,28 +528,39 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
             }
 
         } catch (e: IOException) {
-            Toast.makeText(this, context.getResources().getString(R.string.ErrorGeneral),Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                context.getResources().getString(R.string.ErrorGeneral),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
-    fun navegarSiguiente(){
-        startActivity(Intent(this,scanner_consumo::class.java))
+    fun navegarSiguiente() {
+        startActivity(Intent(this, scanner_consumo::class.java))
     }
 
-    fun createDirectorio(dirPath : String){
+    fun createDirectorio(dirPath: String) {
         val projDir = File(dirPath)
-        if (!projDir.exists()){ projDir.mkdirs() }
+        if (!projDir.exists()) {
+            projDir.mkdirs()
+        }
     }
 
-    private fun saveToInternalStorage(name: String, bitmapImage: Bitmap?, context: Context): String {
+    private fun saveToInternalStorage(
+        name: String,
+        bitmapImage: Bitmap?,
+        context: Context
+    ): String {
         val cw = ContextWrapper(context.applicationContext)
         // path to /data/data/yourapp/app_data/imageDir
         //val directory = cw.getDir("imagenesLectura", Context.MODE_PRIVATE)
-        val dirPath = getExternalFilesDir(Environment.DIRECTORY_DCIM).toString()+ File.separator.toString() + timeStamp
+        val dirPath =
+            getExternalFilesDir(Environment.DIRECTORY_DCIM).toString() + File.separator.toString() + timeStamp
         // Create imageDir
         // Log.d("PATH", directory.path)
         //val mypath = File(directory, name+".jpg")
-        val mypathAux = File(dirPath, name+".jpg")
+        val mypathAux = File(dirPath, name + ".jpg")
         var fos: FileOutputStream? = null
         try {
             //fos = FileOutputStream(mypath)
@@ -556,10 +592,9 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
         navBack() // optional depending on your needs
     }
 
-    private fun navBack(){
-        startActivity(Intent(this,MainActivity::class.java))
+    private fun navBack() {
+        startActivity(Intent(this, MainActivity::class.java))
     }
-
 
 }
 
@@ -568,5 +603,6 @@ class scanner_numSerie : AppCompatActivity(), View.OnClickListener {
  *      Clase en la que se guardan los objectos detectados
  */
 data class DetectionResult(val boundingBox: RectF, val text: String)
+
 
 

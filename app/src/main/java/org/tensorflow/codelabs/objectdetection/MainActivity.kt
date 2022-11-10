@@ -14,11 +14,12 @@ import android.widget.Button
 import java.util.*
 
 private const val TAG = "MainActivity"
+
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var bntScanner: Button
     private lateinit var btnAlmacen: Button
     private lateinit var btnIdioma: Button
-    private lateinit var context : Context
+    private lateinit var context: Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,10 +33,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnAlmacen.setOnClickListener(this)
 
         val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
-        val idioma = preferencias.getString("idioma_set","")
-        if(idioma == "EU"){
+        val idioma = preferencias.getString("idioma_set", "")
+        if (idioma == "EU") {
             context = LocaleHelper.setLocale(this, "eu");
-        }else{
+        } else {
             context = LocaleHelper.setLocale(this, "es")
         }
 
@@ -50,20 +51,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
 
             //Iniciar Scanner
-            R.id.btnScanner-> {
+            R.id.btnScanner -> {
                 try {
                     val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
                     val editor: SharedPreferences.Editor = preferencias.edit()
-                    if(btnIdioma.getText() == "EU"){
-                        editor.putString("idioma_set","ES")
+                    if (btnIdioma.getText() == "EU") {
+                        editor.putString("idioma_set", "ES")
                         editor.commit()
 
-                    }else{
-                        editor.putString("idioma_set","EU")
+                    } else {
+                        editor.putString("idioma_set", "EU")
                         editor.commit()
 
                     }
-                    startActivity(Intent(this,scanner_numSerie::class.java))
+                    startActivity(Intent(this, scanner_numSerie::class.java))
                 } catch (e: ActivityNotFoundException) {
                     Log.e(scanner_numSerie.TAG, e.message.toString())
                 }
@@ -72,26 +73,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             //alamacen
             R.id.btnAlmacen -> {
                 try {
-                    startActivity(Intent(this,visualizar_datos_almacenados::class.java))
+                    startActivity(Intent(this, visualizar_datos_almacenados::class.java))
                 } catch (e: ActivityNotFoundException) {
                     Log.e(scanner_numSerie.TAG, e.message.toString())
                 }
             }
 
             //cambioIdioma
-            R.id.btnIdioma-> {
+            R.id.btnIdioma -> {
 
                 try {
                     val preferencias = getSharedPreferences("idiomas", MODE_PRIVATE)
                     val editor: SharedPreferences.Editor = preferencias.edit()
-                    if(btnIdioma.getText() == "EU"){
+                    if (btnIdioma.getText() == "EU") {
                         context = LocaleHelper.setLocale(this, "eu");
-                        editor.putString("idioma_set","EU")
+                        editor.putString("idioma_set", "EU")
                         editor.commit()
 
-                    }else{
+                    } else {
                         context = LocaleHelper.setLocale(this, "es");
-                        editor.putString("idioma_set","ES")
+                        editor.putString("idioma_set", "ES")
                         editor.commit()
                     }
 
@@ -110,10 +111,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onBackPressed() {
-        startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
     }
-
-
 
 
 }
